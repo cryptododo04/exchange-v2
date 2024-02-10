@@ -9,6 +9,7 @@ function selectCountryDestino(country2) {
 
   /*
 Argentina
+Bitcoin
 Brasil
 Chile
 Colombia
@@ -16,10 +17,17 @@ Costa Rica
 Ecuador
 España
 Estados Unidos
+Ethereum
 Mexico
+Paypal
 Peru
 Republica Dominicana
+Revolut
+Skrill
+USDT
 Venezuela
+
+
 */
 
 /*
@@ -35,5 +43,8 @@ Venezuela
 •  España   :       “Bizum”  "Transferencias"
 •  Estados Unidos  “zelle” "cashapp" "venmo"   (20% de comision)
 • republica dominicana "banreservas"
+
+
+
 
 */
