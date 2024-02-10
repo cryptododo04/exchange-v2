@@ -1,5 +1,9 @@
-function selectCountry(country) {
-    document.getElementById("countryDropdown").innerText = country;
+function selectCountryOrigen(country) {
+    document.getElementById("countryDropdownOrigen").innerText = country;
+}
+
+function selectCountryDestino(country2) {
+    document.getElementById("countryDropdownDestino").innerText = country2;
 }
 
 
