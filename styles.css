@@ -93,7 +93,10 @@
 
 
 .dropdown-menu {
-    max-height: 200px; /* Ajusta la altura máxima según sea necesario */
+
+    /* altura minima del menu desplegable de los dropdowns*/
+    min-height: 400px;
+
     overflow-y: auto; /* Agrega un scrollbar si la lista es más larga que la altura máxima */
 }
 
