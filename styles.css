@@ -322,13 +322,23 @@ body::before {
 .input-group>.form-floating,
 .input-group>.form-select {
 
-    min-width: 280px;
+    min-width: 315px;
 }
 
 
 .dropdown-toggle {
-    min-width: 280px; /* Establece el ancho mínimo deseado */
+    min-width: 315px; /* Establece el ancho mínimo deseado */
 }
+
+.mat-card {
+
+    padding: 10px;
+    margin: 20px;
+    
+  }
+
+
+
   }
 
 

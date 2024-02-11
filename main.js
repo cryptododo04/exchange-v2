@@ -24,6 +24,7 @@ function obtenerUrlImagen(countryName) {
         'Ecuador (USD)': 'images/ecuador.png',
         'España (EUR)': 'images/spain.png',
         'Estados Unidos (USD): (20% de comision)': 'images/usa.png',
+        'Estados Unidos (USD)': 'images/usa.png',
         'Mexico (MXN)': 'images/mexico.png',
         'Peru (SOL)': 'images/peru.png',
         'Republica Dominicana (POP)': 'images/dominican-republic.png',
