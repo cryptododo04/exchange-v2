@@ -401,3 +401,7 @@ order: 0;
     transform: translateX(0);
   }
 
+  .input-group>.form-control{
+    margin-right: 0px;
+  }
+
