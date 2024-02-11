@@ -95,8 +95,19 @@ body::before {
     margin-top: 80px;
 }
 
+.input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating) {
+  border-top-right-radius: 500px;
+  border-bottom-right-radius: 500px;
+  text-align: center;
+}
 
+.input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+  margin-left: calc(var(--bs-border-width) * -1);
+  border-top-left-radius: 500px;
+  border-bottom-left-radius: 500px;
+  text-align: center;
 
+}
 
 .card-container{
     display: flex;
@@ -275,22 +286,6 @@ body::before {
 
 
 
-.dropdown-toggle {
-    min-width: 350px; /* Establece el ancho mínimo deseado */
-}
-
-.input-group>.form-control,
-.input-group>.form-floating,
-.input-group>.form-select {
-    position: relative;
-    flex: 1 1 auto;
-    /* width: 1%; */ /* Comenta o elimina esta línea */
-    width: 200px; /* O cambia a width: auto; */
-    
-    border-radius: 0%;
-    min-width: 350px;
-}
-
 .input-container{
     display: flex;
     flex-direction: row;
@@ -301,6 +296,7 @@ body::before {
   }
 
   .origen-imagen {
+
     background-color: white;
     margin-top: 5px;
     width: 64px;
@@ -326,7 +322,7 @@ body::before {
     }
     .input-group {
       flex-direction: column;
-      gap: 10px;
+      justify-content: space-around;
     }
   
 
@@ -388,6 +384,10 @@ order: 0;
     order: 1
   }
 
+  .btn{
+    margin-bottom: 15px;
+  }
+
 
   }
 
@@ -405,3 +405,38 @@ order: 0;
     margin-right: 0px;
   }
 
+
+.btn{
+
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  border-radius: 500px;
+  transition-property: background-color,border-color,color,box-shadow,filter;
+  transition-duration: .3s;
+  border: 1px solid transparent;
+  letter-spacing: 1px;
+  max-width: 315px;
+  text-transform: uppercase;
+  white-space: normal;
+  font-weight: 700;
+  text-align: center;
+  padding: 10px 0px;
+  padding-left: 15px;
+  color: #fff;
+  background-color: #16863b;
+  height: 48px;
+
+
+}
+.btn:hover{
+  background-color: #da17b9;
+  text-align: center;
+}
+
+input[type="number"]{
+  height: 48px;
+  border-radius: 500px;
+}
