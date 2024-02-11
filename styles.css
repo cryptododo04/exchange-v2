@@ -196,14 +196,14 @@ body::before {
 .dropdown-menu {
 
     /* altura minima del menu desplegable de los dropdowns*/
-    min-height: 400px;
+
 
     overflow-y: auto; /* Agrega un scrollbar si la lista es más larga que la altura máxima */
 }
 
 .prex{
-    width: 64px;
-    height: 64px;
+    max-width: 64px;
+    max-height: 64px;
 }
 
 
@@ -247,7 +247,10 @@ body::before {
   }
   
 
-
+  .prex img {
+    width: 64px;
+    height: 64px;
+}
   
 
   
@@ -288,14 +291,17 @@ body::before {
 .input-container{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     gap: 15px;
 
   }
 
-  .origen-imagen{
+  .origen-imagen img{
     background-color: white;
-    width: 64px;
-    height: 64px;
+    margin-top: 5px;
+    max-width: 100px;
+    max-height: 64px;
     border-radius: 500px;
   }
 
@@ -354,6 +360,17 @@ body::before {
     margin: 20px;
     
   }
+
+
+  h2{
+    text-align: center;
+  }
+
+  .prex img {
+    max-width: 64px;
+    max-height: 64px;
+}
+
 
 
 

@@ -30,7 +30,7 @@ function obtenerUrlImagen(countryName) {
         'Republica Dominicana (POP)': 'images/dominican-republic.png',
         'Venezuela (VES)': 'images/venezuela.png',
         'Paypal (USD)': 'images/paypal.png',
-        'Prex (ARS-USD)': 'images/prex.jpg',
+        'Prex (ARS-USD)': 'images/prex.png',
         'Revolut (USD)': 'images/revolut.png',
         'Skrill (USD)': 'images/skrill.png',
         'Bitcoin (BTC)': 'images/bitcoin.png',
