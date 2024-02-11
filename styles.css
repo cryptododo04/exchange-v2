@@ -271,12 +271,32 @@ body::before {
     min-width: 350px;
 }
 
+.input-container{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
 
+  }
+
+  .origen-imagen{
+    background-color: white;
+    width: 64px;
+    height: 64px;
+    border-radius: 500px;
+  }
+
+
+  .destino-imagen{
+    background-color: white;
+    width: 64px;
+    height: 64px;
+    border-radius: 500px;
+  }
 
 
 
 /**media querys*/
-@media screen and (max-width: 810px) {
+@media screen and (max-width: 870px) {
     .input-group {
       flex-direction: column;
       gap: 10px;
@@ -289,12 +309,26 @@ body::before {
       flex: 1;
       margin-right: 0px;
     }
+
+    .input-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .input-group>.form-control,
+.input-group>.form-floating,
+.input-group>.form-select {
+
+    min-width: 280px;
+}
+
+
+.dropdown-toggle {
+    min-width: 280px; /* Establece el ancho mínimo deseado */
+}
   }
-  .input-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-  }
+
 
