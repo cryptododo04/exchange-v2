@@ -25,7 +25,7 @@
             <div class="mat-card-header">
                 <h2>Tu envías</h2>
                 <div class="input-group">
-                    <input type="number" class="form-control" placeholder="0.00">
+                    <input type="number" class="form-control transform-animation" placeholder="0.00">
                     <div class="dropdown">
                       <button id="countryDropdownOrigen" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Seleccione Origen
@@ -44,9 +44,11 @@
 
 
                         <li>
+                          <div class=".item-container">
                           <a class="dropdown-item" href="#" onclick="selectCountryOrigen('Brasil (R$)', 'countryDropdownOrigen')">
                             <img src="images/brazil.png" alt="Brasil">Brasil (R$)
                           </a>
+                        </div>
                         </li>
 
                         <li>
@@ -180,11 +182,16 @@
             </div>
 
             <div class="loader"></div>
-            
+
             <div class="mat-card-header">
                 <h2>Tu recibes</h2>
+
+                <div class="input-container">
+
+
                 <div class="input-group">
-                    <input type="number" class="form-control inputNumber" placeholder="0.00"> 
+                  
+                    <input type="number" class="form-control" placeholder="0.00" readonly> 
                     <div class="dropdown">
                       <button id="countryDropdownDestino" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Seleccione Destino
@@ -317,6 +324,11 @@
                       </ul>
                     </div>
                 </div>
+                <div class="destino-imagen">
+                  <img src="" alt="">
+              </div>
+
+              </div>
             </div>
         </div>
     </div>
