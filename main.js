@@ -99,11 +99,16 @@ function obtenerCurrency(countryName) {
     return currencies[countryName] || '';
 }
 
+//------------DECLARACION DE LA VARIABLE DE CANTIDAD ORIGEN----------------
+
+
+//------------DECLARACION DE LA VARIABLE DE CANTIDAD DESTINO---------------
+let cantidadDestino = 0.00;
 
 
 //------------FUNCION CALCULAR COMISION-------------------
 function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
-    let comision = 0;
+    
 
     if (paisOrigen === 'Argentina (ARS)') {
         if (paisDestino === 'Paypal (USD)') {
@@ -117,12 +122,39 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
     } else if (paisOrigen === 'Brasil (R$)') {
         // Evaluar casos para Brasil como origen
     }
+    else if (paisOrigen === 'PAYPAL (USD)'){
+        console.log("estoy en PAYPAL")
+        if(paisDestino === 'ARGENTINA (ARS)'){
+
+            if(cantidadOrigen != 0){
+            //Calculo de la comision de paypal 
+                const comisionPorcentaje = 5.4; // Porcentaje de comisión de PayPal
+                const comisionFija = 0.30; // Comisión fija de PayPal
+                const comisionPorcentajeDecimal = comisionPorcentaje / 100; // Convertir el porcentaje a decimal
+                const cantidadConComisionPorcentaje = cantidadOrigen - (cantidadOrigen * comisionPorcentajeDecimal);
+                const cantidadConComisionTotal = cantidadConComisionPorcentaje - comisionFija;
+
+                console.log(cantidadConComisionTotal);
+                console.log("EL RESULTADO DE PAYPAL ARGENTINA ES: " + cantidadConComisionTotal);
+
+            //calculo USDT
+
+            let resultado = cantidadConComisionTotal - (cantidadConComisionTotal * 0.2);
+
+            console.log("resultado total: " +resultado)
+                return resultado;
+            }
+            
+        }
+    }
     // Agrega más casos para otros países como origen
 
     return cantidadOrigen - comision; // Retorna el monto después de aplicar la comisión
 }
 
 //-------VALIDACION CUANDO CAMBIA UN NUMERO DEL INPUT 1----------------
+
+
 
 
 // Cambia el selector según el ID de tu segundo input
@@ -132,57 +164,59 @@ const inputCantidadDestino = document.getElementById('cantidad-destino');
 document.getElementById('cantidad-origen').addEventListener('input', function() {
     let cantidadOrigen = parseFloat(this.value);
     let paisOrigen = document.getElementById('countryDropdownOrigen').innerText.trim();
+    console.log(paisOrigen);
     let paisDestino = document.getElementById('countryDropdownDestino').innerText.trim();
+    console.log(paisDestino);
 
     if(paisOrigen.includes('SELECCIONE ORIGEN') || paisDestino.includes('SELECCIONE DESTINO')){
         console.log("ingresar opciones validas");
         return 0;
     }
 
-    let cantidadDestino = calcularComision(cantidadOrigen, paisOrigen, paisDestino);
-
-    inputCantidadDestino.value = cantidadDestino.toFixed(2);
-});calcularComision
-
-document.getElementById('countryDropdownDestino').addEventListener('click', function() {
-    let cantidadOrigen = parseFloat(document.getElementById('cantidad-origen').value);
-    let paisOrigen = document.getElementById('countryDropdownOrigen').innerText.trim();
-    let paisDestino = this.innerText.trim();
-
-    if(paisOrigen.includes('SELECCIONE ORIGEN') || paisDestino.includes('SELECCIONE DESTINO')){
-        console.log("ingresar opciones validas");
-        return 0;
-    }
-    let cantidadDestino = calcularComision(cantidadOrigen, paisOrigen, paisDestino);
+    cantidadDestino = calcularComision(cantidadOrigen, paisOrigen, paisDestino);
 
     inputCantidadDestino.value = cantidadDestino.toFixed(2);
 });
+
+
+
 
 // Deshabilita la edición del segundo input
 inputCantidadDestino.readOnly = true;
 
 // Escucha el evento show.bs.dropdown del dropdown para ejecutar la función de cálculo
-document.getElementById('countryDropdownDestino').addEventListener('show.bs.dropdown', function () {
-    let cantidadOrigen = parseFloat(document.getElementById('cantidad-origen').value);
+
+
+
+
+//event listener de cuando se cierra la lista de opciones de origen
+document.getElementById('countryDropdownOrigen').addEventListener('hidden.bs.dropdown', function() {
+
+    let cantidadOrigen = 0;
+
+
+
+    
+     cantidadOrigen = parseFloat(document.getElementById('cantidad-origen').value);
     let paisOrigen = document.getElementById('countryDropdownOrigen').innerText.trim();
-    let paisDestino = this.innerText.trim();
+    console.log(paisOrigen);
+    let paisDestino = document.getElementById('countryDropdownDestino').innerText.trim();
+    console.log(paisDestino);
 
     if(paisOrigen.includes('SELECCIONE ORIGEN') || paisDestino.includes('SELECCIONE DESTINO')){
         console.log("ingresar opciones validas");
         return 0;
     }
 
+    cantidadDestino = calcularComision(cantidadOrigen, paisOrigen,paisDestino);
+    console.log(cantidadDestino);
 
     inputCantidadDestino.value = cantidadDestino.toFixed(2);
+
 });
 
-
-
-//event listener de cuando se cierra la lista de opciones de origen
-document.getElementById('countryDropdownOrigen').addEventListener('hidden.bs.dropdown', function() {
-
-    let cantidadOrigen = 0;
-
+//event listener de cuando se cierra la lista de opciones de destino
+document.getElementById('countryDropdownDestino').addEventListener('hidden.bs.dropdown', function() {
 
 
     
@@ -197,27 +231,8 @@ document.getElementById('countryDropdownOrigen').addEventListener('hidden.bs.dro
         return 0;
     }
 
-});
-
-//event listener de cuando se cierra la lista de opciones de origen
-document.getElementById('countryDropdownOrigen').addEventListener('hidden.bs.dropdown', function() {
-
-    let cantidadOrigen = 0;
-
-
-
-    
-     cantidadOrigen = parseFloat(document.getElementById('cantidad-origen').value);
-    let paisOrigen = document.getElementById('countryDropdownOrigen').innerText.trim();
-    console.log(paisOrigen);
-    let paisDestino = document.getElementById('countryDropdownDestino').innerText.trim();
-    console.log(paisDestino);
-
-    if(paisOrigen.includes('SELECCIONE ORIGEN') || paisDestino.includes('SELECCIONE DESTINO')){
-        console.log("ingresar opciones validas");
-        return 0;
-    }
-
+    cantidadDestino = calcularComision(cantidadOrigen, paisOrigen,paisDestino);
+    console.log(cantidadDestino);
 
     inputCantidadDestino.value = cantidadDestino.toFixed(2);
 });
