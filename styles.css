@@ -92,7 +92,7 @@ body::before {
 }
 
 .card-container{
-    margin-top: 2px;
+    margin-top: 40px;
 }
 
 .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating) {
@@ -323,6 +323,40 @@ body::before {
   }
 
 
+  .bordered-box {
+    position: relative;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
+  }
+
+  .btn{
+
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    border-radius: 500px;
+    transition-property: background-color,border-color,color,box-shadow,filter;
+    transition-duration: .3s;
+    border: 1px solid transparent;
+    letter-spacing: 1px;
+    max-width: 305px;
+    text-transform: uppercase;
+    white-space: normal;
+    font-weight: 700;
+    text-align: center;
+    padding: 10px 0px;
+    padding-left: 15px;
+    color: #fff;
+    background-color: #3f8a52;
+    height: 48px;
+  
+  
+  }
+
 
 /**media querys*/
 @media screen and (max-width: 870px) {
@@ -356,19 +390,19 @@ body::before {
 .input-group>.form-floating,
 .input-group>.form-select {
 
-    min-width: 315px;
+    min-width: 250px;
 }
 
 
 .dropdown-toggle {
-    min-width: 315px; /* Establece el ancho mínimo deseado */
+    min-width: 250px; /* Establece el ancho mínimo deseado */
     margin-left: 0px;
 }
 
 .mat-card {
 
     padding: 10px;
-    margin: 20px;
+    margin: 0px;
     
   }
 
@@ -397,8 +431,11 @@ order: 0;
 
   .btn{
     margin-bottom: 15px;
-  }
+  } 
 
+  .bordered-box {
+    margin: 10px 0px;
+  }
 
   }
 
@@ -417,31 +454,7 @@ order: 0;
   }
 
 
-.btn{
 
-  display: inline-block;
-  outline: none;
-  cursor: pointer;
-  font-size: 14px;
-  line-height: 1;
-  border-radius: 500px;
-  transition-property: background-color,border-color,color,box-shadow,filter;
-  transition-duration: .3s;
-  border: 1px solid transparent;
-  letter-spacing: 1px;
-  max-width: 315px;
-  text-transform: uppercase;
-  white-space: normal;
-  font-weight: 700;
-  text-align: center;
-  padding: 10px 0px;
-  padding-left: 15px;
-  color: #fff;
-  background-color: #3f8a52;
-  height: 48px;
-
-
-}
 .btn:hover{
   background-color: #12c23e;
   text-align: center;
@@ -452,13 +465,7 @@ input[type="number"]{
   border-radius: 500px;
 }
 
-.bordered-box {
-  position: relative;
-  border: 2px solid black;
-  border-radius: 20px;
-  padding: 20px;
-  margin: 20px;
-}
+
 
 .corner-label {
   position: absolute;

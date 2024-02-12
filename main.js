@@ -1,6 +1,14 @@
 
     function selectCountryOrigen(country) {
+        
+
         document.getElementById("countryDropdownOrigen").innerText = country;
+
+
+        let currencyOrigen = obtenerCurrency(country);
+        document.getElementById("currencyLabelOrigen").innerText = 'Envias ' + currencyOrigen;
+
+
         let imageUrl = obtenerUrlImagen(country);
         let imagen = document.querySelector(".origen-imagen img");
     
@@ -24,6 +32,10 @@
 
     function selectCountryDestino(country2) {
         document.getElementById("countryDropdownDestino").innerText = country2;
+
+        let currencyDestino = obtenerCurrency(country2);
+        document.getElementById("currencyLabelDestino").innerText = 'Recibes ' + currencyDestino;
+
     let imageUrl = obtenerUrlImagen(country2);
     let imagen = document.querySelector(".destino-imagen img");
 
@@ -69,6 +81,33 @@
             'USDT (USDT)': 'images/usdt.png'
         };
         return imageUrls[countryName] || ''; // Si no se encuentra la URL, devuelve una cadena vacía
+    }
+
+    function obtenerCurrency(countryName) {
+        let currencies = {
+            'Argentina (ARS)': '(ARS)',
+            'Brasil (R$)': '(R$)',
+            'Chile (CLP)': 'CLP',
+            'Chile (CLP) RUT': 'CLP', // Reutilizando la misma imagen que para 'Chile (CLP)'
+            'Colombia (COP)': 'COP',
+            'Costa Rica (CRC)': 'CRC',
+            'Ecuador (USD)': 'USD',
+            'España (EUR)': 'EUR',
+            'Estados Unidos (USD): (20% de comision)': 'USD',
+            'Estados Unidos (USD)': 'USD',
+            'Mexico (MXN)': 'MXN',
+            'Peru (SOL)': 'SOL',
+            'Republica Dominicana (POP)': 'POp',
+            'Venezuela (VES)': 'VES',
+            'Paypal (USD)': 'USD',
+            'Prex (ARS-USD)': 'ARS-USD',
+            'Revolut (USD)': 'USD',
+            'Skrill (USD)': 'USD',
+            'Bitcoin (BTC)': 'BTC',
+            'Ethereum (ETH)': 'ETH',
+            'USDT (USDT)': 'USDT'
+        };
+        return currencies[countryName] || '';
     }
 
   /*
