@@ -20,10 +20,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+
+
+  
     <div class="card-container">
         <div class="mat-card">
             <div class="mat-card-header">
-                <h2>Tu envías</h2>
+                <h2>Exchange</h2>
+
+                <div class="bordered-box">
+                  <label class="corner-label">Tu envias</label>
+                  
+                
 
                 <div class="input-container">
 
@@ -186,18 +194,23 @@
                   <img src="images/earth.png" alt="planet earth">
                 </div>
               </div>
+              </div>
             </div>
 
             <div class="loader"></div>
 
             <div class="mat-card-header">
-                <h2>Tu recibes</h2>
+
+                <div class="bordered-box">
+                  <label class="corner-label">Tu recibes</label>
+                  
 
                 <div class="input-container">
 
 
                 <div class="input-group">
-                  
+
+                  <input type="number" class="form-control" id="cantidad-origen" placeholder="0.00" readonly>
                     
                     <div class="dropdown">
                       <button id="countryDropdownDestino" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -330,16 +343,18 @@
 
                       </ul>
                     </div>
-                    <input type="number" class="form-control" id="cantidad-origen" placeholder="0.00" readonly>
                 </div>
                 <div class="destino-imagen">
                   <img src="images/apreton.png" alt="apreton de manos">
               </div>
 
               </div>
+              </div>
             </div>
         </div>
     </div>
+
+
 
 
 </body>

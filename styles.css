@@ -92,7 +92,7 @@ body::before {
 }
 
 .card-container{
-    margin-top: 80px;
+    margin-top: 2px;
 }
 
 .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating) {
@@ -105,7 +105,7 @@ body::before {
   margin-left: calc(var(--bs-border-width) * -1);
   border-top-left-radius: 500px;
   border-bottom-left-radius: 500px;
-  text-align: center;
+  text-align: center; 
 
 }
 
@@ -117,16 +117,16 @@ body::before {
 
 /* css de la tarjeta principal*/
 .mat-card {
-    background-color: rgba(209, 209, 209, 0.815);
+    background-color: rgba(209, 209, 209, 1);
     border: 1px solid #e5e5e5;
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin: 20px;
 
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 2px;
     
   }
 
@@ -140,6 +140,7 @@ body::before {
   .output-group {
     display: flex;
     align-items: center;
+    gap: 10px;
   }
   
   .input-group input,
@@ -155,6 +156,13 @@ body::before {
     margin-left: 10px; /* Adjust as needed */
   }
   
+  input[type="number"]:focus {
+    border-color: #00FF00; /* Cambiar a verde (#00FF00) o el color que desees */
+    border: 2px solid black;
+    box-shadow: none; /* Opcional: para eliminar la sombra que a veces aparece en el foco */
+    order:-10;
+}
+
   .select-with-images select {
     appearance: none;
     -webkit-appearance: none;
@@ -164,7 +172,7 @@ body::before {
     padding: 0;
     margin: 0;
     width: 200px;
-    height: 100px; /* Adjust as needed */
+    height: 200px; /* Adjust as needed */
     border-radius: 5px;
     border: 1px solid #e5e5e5;
     padding-right: 40px; /* Space for arrow */
@@ -211,7 +219,7 @@ body::before {
 
     /* altura minima del menu desplegable de los dropdowns*/
 
-
+    min-height:250px;
     overflow-y: auto; /* Agrega un scrollbar si la lista es más larga que la altura máxima */
 }
 
@@ -227,8 +235,10 @@ body::before {
   .dropdown-toggle,
   .dropdown-menu {
     background-color: #ffffff; /* Replace with your desired color */
-    border-color: #ced4da; /* Replace with your desired color */
+    border-color: #dacece; /* Replace with your desired color */
     color: #495057; /* Replace with your desired color */
+    min-width: 300px;
+    padding-left: 30px;
   }
   
   /* Update dropdown arrow color */
@@ -323,6 +333,7 @@ body::before {
     .input-group {
       flex-direction: column;
       justify-content: space-around;
+      gap: 0px;
     }
   
 
@@ -351,6 +362,7 @@ body::before {
 
 .dropdown-toggle {
     min-width: 315px; /* Establece el ancho mínimo deseado */
+    margin-left: 0px;
 }
 
 .mat-card {
@@ -378,11 +390,10 @@ order: 0;
   .input-group{
     order: 2;
     display: flex;
+    gap: 15px;
   }
 
-  input{
-    order: 1
-  }
+
 
   .btn{
     margin-bottom: 15px;
@@ -426,17 +437,37 @@ order: 0;
   padding: 10px 0px;
   padding-left: 15px;
   color: #fff;
-  background-color: #16863b;
+  background-color: #3f8a52;
   height: 48px;
 
 
 }
 .btn:hover{
-  background-color: #da17b9;
+  background-color: #12c23e;
   text-align: center;
 }
 
 input[type="number"]{
   height: 48px;
   border-radius: 500px;
+}
+
+.bordered-box {
+  position: relative;
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.corner-label {
+  position: absolute;
+  top: -10px;
+  left: -30px;
+  background-color: rgba(209, 209, 209, 1);
+  padding: 5px;
+  border: none; /* Remove the border from the label */
+  transform: translate(50%, -11.5%);
+  font-size: 20px;
+  padding: 0px 10px 10px 10px;
 }
