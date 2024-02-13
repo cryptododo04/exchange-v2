@@ -7,6 +7,11 @@ const comisiones = {
     // Agrega más países y porcentajes según sea necesario
 };
 
+function redondearDosDecimales(numero) {
+    return Math.round(numero * 100) / 100;
+}
+
+
 function selectCountryOrigen(country) {
     document.getElementById("countryDropdownOrigen").innerText = country;
     let currencyOrigen = obtenerCurrency(country);
@@ -104,64 +109,271 @@ let cantidadOrigen = 0.00;
 //------------DECLARACION DE LA VARIABLE DE CANTIDAD DESTINO---------------
 let cantidadDestino = 0.00;
 
+//------------FUNCION REDONDEAR------------------------
+function redondear(numero, decimales) {
+    const factor = Math.pow(10, decimales);
+    return Math.floor(numero * factor) / factor;
+}
+
 
 //------------FUNCION CALCULAR COMISION-------------------
-function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
+function calcularComision() 
+    {
+        const paisOrigen = document.getElementById('countryDropdownOrigen').innerText.trim();
+        const paisDestino = document.getElementById('countryDropdownDestino').innerText.trim();
+        const cantidadOrigen = parseFloat(document.getElementById('cantidad-origen').value);
     
+        let comision = 0
 
-    if (paisOrigen === 'Argentina (ARS)') {
-        if (paisDestino === 'Paypal (USD)') {
-            comision = cantidadOrigen * 0.1; // Comisión del 10% para Paypal
-        } else if (paisDestino === 'Estados Unidos (USD)') {
-            comision = cantidadOrigen * 0.2; // Comisión del 20% para Estados Unidos
-        } else if (paisDestino === 'Chile (CLP) RUT') {
-            comision = cantidadOrigen * 0.15; // Comisión del 15% para Chile (CLP) RUT
+        if (isNaN(cantidadOrigen)) {
+            return '';
         }
-        // Agrega más casos según sea necesario para Argentina como origen
-    } else if (paisOrigen === 'Brasil (R$)') {
-        // Evaluar casos para Brasil como origen
-    }
-    else if (paisOrigen === 'PAYPAL (USD)'){
-        console.log("estoy en PAYPAL")
-        if(paisDestino === 'ARGENTINA (ARS)'){
 
-            if(cantidadOrigen != 0){
-
-
-            //Calculo de la comision de paypal 
-                const comisionPorcentaje = 5.4; // Porcentaje de comisión de PayPal
-                const comisionFija = 0.30; // Comisión fija de PayPal
-                const comisionPorcentajeDecimal = comisionPorcentaje / 100; // Convertir el porcentaje a decimal
-                const cantidadConComisionPorcentaje = cantidadOrigen - (cantidadOrigen * comisionPorcentajeDecimal);
-                const cantidadConComisionTotal = cantidadConComisionPorcentaje - comisionFija;
-
-                console.log(cantidadConComisionTotal);
-                console.log("EL RESULTADO DE PAYPAL ARGENTINA ES: " + cantidadConComisionTotal);
-
-            //calculo USDT
-
-            let resultado = cantidadConComisionTotal * 0.93605;
-
-            let comisionNuestra = (resultado * 0.2);
-
-            console.log(`la comision nuestra es: ${comisionNuestra} `)
-             
-            resultado = resultado - (resultado * 0.2);
-
-            resultado = resultado * 1000;
-
-            console.log("resultado total: " +resultado)
-
-            resultado = resultado.toFixed(1);
-
-                return resultado;
+        if (paisOrigen === 'Argentina (ARS)')
+            {
+                if (paisDestino === 'Paypal (USD)') {
+                    comision = cantidadOrigen * 0.1; // Comisión del 10% para Paypal
+                } else if (paisDestino === 'Estados Unidos (USD)') {
+                    comision = cantidadOrigen * 0.2; // Comisión del 20% para Estados Unidos
+                } else if (paisDestino === 'Chile (CLP) RUT') {
+                    comision = cantidadOrigen * 0.15; // Comisión del 15% para Chile (CLP) RUT
+                }
+            // Agrega más casos según sea necesario para Argentina como origen
+            } else if (paisOrigen === 'Brasil (R$)') {
+                // Evaluar casos para Brasil como origen
             }
-            
-        }
-    }
-    // Agrega más casos para otros países como origen
+            else if (paisOrigen === 'PAYPAL (USD)')
+            {
+                
+                console.log("estoy en PAYPAL")
+                
+                //----------CONDICION DE PAYPAL A ARGENTINA------------------
+                if(paisDestino === 'ARGENTINA (ARS)')
+                {
 
-    return cantidadOrigen - comision; // Retorna el monto después de aplicar la comisión
+                    if(cantidadOrigen != 0)
+                    {
+
+
+                        //Calculo de la comision de paypal 
+                        const comisionPorcentaje = 5.4; // Porcentaje de comisión de PayPal
+                        const comisionFija = 0.30; // Comisión fija de PayPal
+                        const comisionPorcentajeDecimal = comisionPorcentaje / 100; // Convertir el porcentaje a decimal
+                        const cantidadConComisionPorcentaje = cantidadOrigen - (cantidadOrigen * comisionPorcentajeDecimal);
+                        const cantidadConComisionTotal = cantidadConComisionPorcentaje - comisionFija;
+
+                        
+                        console.log(cantidadConComisionTotal);
+                        
+                        console.log("EL RESULTADO DE PAYPAL ARGENTINA ES: " + cantidadConComisionTotal);
+
+
+
+                        //calculo USDT
+
+                        let resultado = cantidadConComisionTotal * 0.93605;
+
+
+                        //COMISION DEL SERVICIO
+
+                        let comisionNuestra = (resultado * 0.2);
+
+                        console.log(`la comision nuestra es: ${comisionNuestra} `)
+                        
+                        resultado = resultado - (resultado * 0.2);
+
+                        //PASAJE A PESOS
+                        resultado = resultado * 1000;
+
+                        //REDONDEO
+
+                        resultadoRedondeado = redondear(resultado,0)
+
+                        console.log("resultado total: " +resultado)
+
+
+                        return resultadoRedondeado;
+                    }
+                 //---------------CONDICION PAYPAL A COLOMBIA----------------
+                }else if(paisDestino === 'COLOMBIA (COP)')
+                {
+                    if(cantidadOrigen != 0)
+                    {
+
+
+                        //Calculo de la comision de paypal 
+                            const comisionPorcentaje = 5.4; // Porcentaje de comisión de PayPal
+                            const comisionFija = 0.30; // Comisión fija de PayPal
+                            const comisionPorcentajeDecimal = comisionPorcentaje / 100; // Convertir el porcentaje a decimal
+                            const cantidadConComisionPorcentaje = cantidadOrigen - (cantidadOrigen * comisionPorcentajeDecimal);
+                            const cantidadConComisionTotal = cantidadConComisionPorcentaje - comisionFija;
+            
+                            console.log(cantidadConComisionTotal);
+                            console.log("EL RESULTADO DE PAYPAL COLOMBIA ES: " + cantidadConComisionTotal);
+            
+            
+            
+                            //calculo USDT
+                
+                            let resultado = cantidadConComisionTotal * 0.93605;
+                
+                
+                            //COMISION DEL SERVICIO
+                
+                            let comisionNuestra = (resultado * 0.2);
+                
+                            console.log(`la comision nuestra es: ${comisionNuestra} `)
+                            
+                            resultado = resultado - comisionNuestra;
+                
+                            //PASAJE A COP
+                            resultado = resultado * 3760;
+                
+                            console.log("resultado total: " +resultado)
+    
+                            resultado = resultado.toFixed(0);
+            
+                            return resultado;
+                        }
+                }
+                //---------------CONDICION PAYPAL A MEXICO----------------
+                else if (paisDestino === 'MEXICO (MXN)')
+                {
+                    if(cantidadOrigen != 0)
+                    {
+
+
+                        //Calculo de la comision de paypal 
+                        const comisionPorcentaje = 5.4; // Porcentaje de comisión de PayPal
+                        const comisionFija = 0.30; // Comisión fija de PayPal
+                        const comisionPorcentajeDecimal = comisionPorcentaje / 100; // Convertir el porcentaje a decimal
+                        const cantidadConComisionPorcentaje = cantidadOrigen - (cantidadOrigen * comisionPorcentajeDecimal);
+                        const cantidadConComisionTotal = cantidadConComisionPorcentaje - comisionFija;
+
+                        
+                        console.log(cantidadConComisionTotal);
+                        
+                        console.log("RESTA DE SUMA ORIGINAL Y COSTE PAYPAL ES: " + cantidadConComisionTotal);
+
+
+
+                        //calculo USDT
+
+                        let resultado = cantidadConComisionTotal * 0.93605;
+
+
+                        //COMISION DEL SERVICIO
+
+                        let comisionNuestra = (resultado * 0.2);
+
+                        console.log(`LA COMISION DEL SERVICIO ES: ${comisionNuestra} `)
+                        
+                        resultado = resultado - (resultado * 0.2);
+
+                        //---------------PASAJE A MXM---------------------
+                        resultado = resultado * 17.26;
+
+                        //REDONDEO
+
+                        resultadoRedondeado = redondear(resultado,0)
+
+                        console.log("resultado total: " +resultado)
+
+
+                        return resultadoRedondeado;
+                    }
+            }   //---------------CONDICION PAYPAL A USDT----------------
+                else if (paisOrigen === 'PAYPAL (USD)' && paisDestino === 'USDT (USDT)'){
+                    
+                    if(cantidadOrigen != 0)
+                    {
+
+
+                        //Calculo de la comision de paypal 
+                        const comisionPorcentaje = 5.4; // Porcentaje de comisión de PayPal
+                        const comisionFija = 0.30; // Comisión fija de PayPal
+                        const comisionPorcentajeDecimal = comisionPorcentaje / 100; // Convertir el porcentaje a decimal
+                        const cantidadConComisionPorcentaje = cantidadOrigen - (cantidadOrigen * comisionPorcentajeDecimal);
+                        const cantidadConComisionTotal = cantidadConComisionPorcentaje - comisionFija;
+
+                        
+                        
+                        console.log("RESTA DE SUMA ORIGINAL Y COSTE PAYPAL ES: " + cantidadConComisionTotal);
+
+
+
+                        //calculo USDT
+
+                        let resultado = cantidadConComisionTotal * 0.93605;
+
+
+                        //COMISION DEL SERVICIO
+
+                        let comisionNuestra = (resultado * 0.2);
+
+                        console.log(`LA COMISION DEL SERVICIO ES: ${comisionNuestra} `)
+                        
+                        resultado = resultado - (resultado * 0.2);
+
+                        // Redondeo a dos decimales
+                        resultado = resultado.toFixed(2);
+
+                        console.log("estoy aca" +resultado)
+                        return resultado;
+                    }
+            }
+                //---------------CONDICION PAYPAL A VENEZUELA----------------
+                else if(paisDestino === 'VENEZUELA (VES)')
+                {
+
+                    if(cantidadOrigen != 0)
+                    {
+
+
+                        //Calculo de la comision de paypal 
+                            const comisionPorcentaje = 5.4; // Porcentaje de comisión de PayPal
+                            const comisionFija = 0.30; // Comisión fija de PayPal
+                            const comisionPorcentajeDecimal = comisionPorcentaje / 100; // Convertir el porcentaje a decimal
+                            const cantidadConComisionPorcentaje = cantidadOrigen - (cantidadOrigen * comisionPorcentajeDecimal);
+                            const cantidadConComisionTotal = cantidadConComisionPorcentaje - comisionFija;
+            
+                            console.log(cantidadConComisionTotal);
+                            console.log("EL RESULTADO DE PAYPAL VENEZUELA ES: " + cantidadConComisionTotal);
+            
+            
+            
+                            //calculo USDT
+                
+                            let resultado = cantidadConComisionTotal * 0.93605;
+                
+                
+                            //COMISION DEL SERVICIO
+                
+                            let comisionNuestra = (resultado * 0.2);
+                
+                            console.log(`la comision nuestra es: ${comisionNuestra} `)
+                            
+                            resultado = resultado - comisionNuestra;
+                
+                            //PASAJE A BOLIVARES
+                            resultado = resultado * 35.5;
+                
+                            console.log("resultado total: " +resultado)
+    
+                            resultado = resultado.toFixed(0);
+            
+                            return resultado;
+                        }
+
+
+                }
+
+                //siguiente caso
+            }
+            // Agrega más casos para otros países como origeN
+        
+        //--------return del final de los casos de validacion-----------
+        return '';
 }
 
 //-------VALIDACION CUANDO CAMBIA UN NUMERO DEL INPUT 1----------------
@@ -173,6 +385,7 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 const inputCantidadDestino = document.getElementById('cantidad-destino');
 
 
+//event listener de cuando se modifica el input
 document.getElementById('cantidad-origen').addEventListener('input', function() {
     let cantidadOrigen = parseFloat(this.value);
     let paisOrigen = document.getElementById('countryDropdownOrigen').innerText.trim();
@@ -196,7 +409,11 @@ document.getElementById('cantidad-origen').addEventListener('input', function() 
 
 
     if (typeof cantidadDestino === 'number') {
+
+        if(paisOrigen === 'PAYPAL (USD)' && paisDestino === 'USDT (USDT)')
         inputCantidadDestino.value = cantidadDestino.toFixed(2);
+        else
+        inputCantidadDestino.value = cantidadDestino.toFixed(0);
     } else {
         // Manejo del caso en el que calcularComision no devuelve un número
         console.log('calcularComision no devolvió un número');
@@ -251,7 +468,7 @@ document.getElementById('countryDropdownOrigen').addEventListener('hidden.bs.dro
 
 
     if (typeof cantidadDestino === 'number') {
-        inputCantidadDestino.value = cantidadDestino.toFixed(2);
+        inputCantidadDestino.value = cantidadDestino.toFixed(0);
     } else {
         // Manejo del caso en el que calcularComision no devuelve un número
         console.log('calcularComision no devolvió un número');
@@ -287,7 +504,7 @@ document.getElementById('countryDropdownDestino').addEventListener('hidden.bs.dr
 
 
     if (typeof cantidadDestino === 'number') {
-        inputCantidadDestino.value = cantidadDestino.toFixed(2);
+        inputCantidadDestino.value = cantidadDestino;
     } else {
         // Manejo del caso en el que calcularComision no devuelve un número
         console.log('calcularComision no devolvió un número');
