@@ -100,8 +100,7 @@ function obtenerCurrency(countryName) {
 }
 
 //------------DECLARACION DE LA VARIABLE DE CANTIDAD ORIGEN----------------
-
-
+let cantidadOrigen = 0.00;
 //------------DECLARACION DE LA VARIABLE DE CANTIDAD DESTINO---------------
 let cantidadDestino = 0.00;
 
@@ -127,6 +126,8 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
         if(paisDestino === 'ARGENTINA (ARS)'){
 
             if(cantidadOrigen != 0){
+
+
             //Calculo de la comision de paypal 
                 const comisionPorcentaje = 5.4; // Porcentaje de comisión de PayPal
                 const comisionFija = 0.30; // Comisión fija de PayPal
@@ -139,9 +140,20 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
             //calculo USDT
 
-            let resultado = cantidadConComisionTotal - (cantidadConComisionTotal * 0.2);
+            let resultado = cantidadConComisionTotal * 0.93605;
+
+            let comisionNuestra = (resultado * 0.2);
+
+            console.log(`la comision nuestra es: ${comisionNuestra} `)
+             
+            resultado = resultado - (resultado * 0.2);
+
+            resultado = resultado * 1000;
 
             console.log("resultado total: " +resultado)
+
+            resultado = resultado.toFixed(1);
+
                 return resultado;
             }
             
@@ -175,10 +187,29 @@ document.getElementById('cantidad-origen').addEventListener('input', function() 
 
     cantidadDestino = calcularComision(cantidadOrigen, paisOrigen, paisDestino);
 
-    inputCantidadDestino.value = cantidadDestino.toFixed(2);
+    console.log(typeof(cantidadDestino));
+
+    cantidadDestino = parseFloat(cantidadDestino);
+
+    console.log(typeof(cantidadDestino));
+
+
+
+    if (typeof cantidadDestino === 'number') {
+        inputCantidadDestino.value = cantidadDestino.toFixed(2);
+    } else {
+        // Manejo del caso en el que calcularComision no devuelve un número
+        console.log('calcularComision no devolvió un número');
+    }
 });
 
 
+/*     if (typeof cantidadDestino === 'number') {
+        inputCantidadDestino.value = cantidadDestino.toFixed(2);
+    } else {
+        // Manejo del caso en el que calcularComision no devuelve un número
+        console.log('calcularComision no devolvió un número');
+    } */
 
 
 // Deshabilita la edición del segundo input
@@ -208,12 +239,26 @@ document.getElementById('countryDropdownOrigen').addEventListener('hidden.bs.dro
         return 0;
     }
 
-    cantidadDestino = calcularComision(cantidadOrigen, paisOrigen,paisDestino);
-    console.log(cantidadDestino);
+    //-----------inicio de calculos del evento-------------------
+    cantidadDestino = calcularComision(cantidadOrigen, paisOrigen, paisDestino);
 
-    inputCantidadDestino.value = cantidadDestino.toFixed(2);
+    console.log(typeof(cantidadDestino));
 
+    cantidadDestino = parseFloat(cantidadDestino);
+
+    console.log(typeof(cantidadDestino));
+
+
+
+    if (typeof cantidadDestino === 'number') {
+        inputCantidadDestino.value = cantidadDestino.toFixed(2);
+    } else {
+        // Manejo del caso en el que calcularComision no devuelve un número
+        console.log('calcularComision no devolvió un número');
+    }
 });
+
+
 
 //event listener de cuando se cierra la lista de opciones de destino
 document.getElementById('countryDropdownDestino').addEventListener('hidden.bs.dropdown', function() {
@@ -231,12 +276,23 @@ document.getElementById('countryDropdownDestino').addEventListener('hidden.bs.dr
         return 0;
     }
 
-    cantidadDestino = calcularComision(cantidadOrigen, paisOrigen,paisDestino);
-    console.log(cantidadDestino);
+    cantidadDestino = calcularComision(cantidadOrigen, paisOrigen, paisDestino);
 
-    inputCantidadDestino.value = cantidadDestino.toFixed(2);
+    console.log(typeof(cantidadDestino));
+
+    cantidadDestino = parseFloat(cantidadDestino);
+
+    console.log(typeof(cantidadDestino));
+
+
+
+    if (typeof cantidadDestino === 'number') {
+        inputCantidadDestino.value = cantidadDestino.toFixed(2);
+    } else {
+        // Manejo del caso en el que calcularComision no devuelve un número
+        console.log('calcularComision no devolvió un número');
+    }
 });
-
 
 
   /*
