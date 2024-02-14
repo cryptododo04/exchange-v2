@@ -521,3 +521,15 @@ input[type="number"]:focus {
     border-color: #007bff; /* Cambiar color del borde al estar enfocado */
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Cambiar sombra al estar enfocado */
 }
+
+
+
+body {
+  padding-top: constant(safe-area-inset-top);
+  padding-top: env(safe-area-inset-top);
+}
+
+input[type="number"] {
+  font-family: 'Montserrat', sans-serif;
+  /* Otros estilos */
+}
