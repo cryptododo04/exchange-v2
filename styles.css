@@ -558,3 +558,13 @@ order: 0;
   padding-left: 18px;
 }
 }
+
+.dropdown-header{
+  font-size: 25px;
+  color: rgb(40, 40, 40);
+}
+
+.dropdown-item {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
