@@ -129,6 +129,9 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
     //DECLARACION DE VARIABLE TAKENOS
     let takenos = 0.93605;
 
+    //DECLARACION DE VARIABLO DE ARS A USDT
+    let precioArsUsdt = 1200;
+
     //DECLARACION DE VARIABLE DE PRECIO DE USDT EN ARS
     let PrecioUsdtArs = 1200;   
 
@@ -137,6 +140,16 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
     //DECLARACION DE VARIABLE DE MXN A ARS
     let precioMxnArs = 1000;
+
+    //DECLARACION DE VARIABLE DE MXN A COP
+    let precioMxnCop = 3770;
+
+    //DECLARACION DE VARIABLE DE MXN A VES
+
+    let precioMxnVes = 35.5;
+
+    //DECLARACION DE VARIABLE DE EUR A ARS
+    let precioEuroArs = 1000 ;
 
     
 
@@ -167,10 +180,43 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
          else if (paisDestino === 'Chile (CLP) RUT') {
             comision = cantidadOrigen * 0.15; // Comisión del 15% para Chile (CLP) RUT
         }
+        else if (paisDestino === 'USDT (USDT)'){
+            resultado = cantidadOrigen / precioArsUsdt;
+
+            console.log("cantidadOrigen / 18,5: " + resultado);
+
+            comisionNuestra = resultado * 0.16;
+            
+            console.log("resultado / 0.16: " + resultado);
+
+            resultado = resultado - comisionNuestra;
+
+            console.log(" comisionNuestra = resultado * 0.16: " + resultado)
+
+
+            return resultado.toFixed(2);
+        }
         // Agrega más casos según sea necesario para Argentina como origen
     } 
     else if (paisOrigen === 'Brasil (R$)') {
         // Evaluar casos para Brasil como origen
+    }
+    else if (paisOrigen === 'ESPAÑA (EUR)'){
+
+        if(paisDestino === 'ARGENTINA (ARS)'){
+
+            resultado = cantidadOrigen - (cantidadOrigen * 0.16);
+
+            console.log("resultado de EURO: " + resultado);
+
+            
+
+            resultado = resultado * precioEuroArs;
+
+            console.log("resultado de EURO A ARS: " + resultado);
+
+            return resultado.toFixed(2);
+        }
     }
     else if (paisOrigen === 'MEXICO (MXN)') {
 
@@ -201,8 +247,60 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
             return resultado.toFixed(2);
         }
-        else if(paisDestino === 'COLOMBIA (COP)'){
+        else if(paisDestino === 'COLOMBIA (COP)')
+        {
+            console.log("cantidad de origen: " + cantidadOrigen);
+            //pasaje de MXN a USDT
+            resultado = cantidadOrigen / 18.5;
+
+            console.log("cantidadOrigen / 18,5: " + resultado);
+
+
+            resultado = resultado - (resultado * 0.16)
+            console.log("resultado / 0.16: " + resultado);
+
+
+            console.log(" comisionNuestra = resultado * 0.16: " + resultado)
+
+            resultado = resultado * precioMxnCop;
+
+            console.log("resultado * precioMxnCop: " + resultado)
+
+            return resultado.toFixed(2);
+        }
+        else if (paisDestino === 'VENEZUELA (VES)')
+        {
+                        //pasaje de MXN a USDT
+                        resultado = cantidadOrigen / 18.5;
+
+                        console.log("cantidadOrigen / 18,5: " + resultado);
             
+            
+                        resultado = resultado - (resultado * 0.16)
+                        console.log("resultado / 0.16: " + resultado);
+            
+            
+                        console.log(" comisionNuestra = resultado * 0.16: " + resultado)
+            
+                        resultado = resultado * precioMxnVes;
+            
+                        console.log("resultado * precioMxnCop: " + resultado)
+            
+                        return resultado.toFixed(2);
+        }
+
+        else if (paisDestino === 'USDT (USDT)')
+        {
+                        //pasaje de MXN a USDT
+                        resultado = cantidadOrigen / 18.5;
+
+                        console.log("cantidadOrigen / 18,5: " + resultado);
+            
+            
+                        resultado = resultado - (resultado * 0.16)
+                        console.log("resultado / 0.16: " + resultado);
+
+                        return resultado;
         }
 
     } 
@@ -253,7 +351,7 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             let resultado = cantidadConComisionTotal * PrecioUsdtPaypal;
 
             // Cálculo de la comisión de nuestro servicio
-            comisionNuestra = resultado * 0.2;
+            comisionNuestra = resultado * porcentajeComision;
 
             resultado = resultado - comisionNuestra;
             
@@ -261,14 +359,10 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             resultado = resultado * 17.26;
             return resultado.toFixed(0);
         } else if (paisDestino === 'USDT (USDT)') {
-            // Cálculo de la comisión de PayPal
-            const comisionPorcentaje = 5.4; // Porcentaje de comisión de PayPal
-            const comisionFija = 0.30; // Comisión fija de PayPal
-            const comisionPorcentajeDecimal = comisionPorcentaje / 100; // Convertir el porcentaje a decimal
-            const cantidadConComisionPorcentaje = cantidadOrigen - (cantidadOrigen * comisionPorcentajeDecimal);
-            const cantidadConComisionTotal = cantidadConComisionPorcentaje - comisionFija;
+
             // Cálculo de USDT
             let resultado = cantidadConComisionTotal * 0.93605;
+
             // Cálculo de la comisión de nuestro servicio
             let comisionNuestra = resultado * 0.2;
             resultado = resultado - comisionNuestra;
