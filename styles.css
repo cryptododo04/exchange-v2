@@ -417,6 +417,7 @@ input[type="number"]{
   transform: translate(50%, -11.5%);
   font-size: 20px;
   padding: 0px 12px 5px 10px;
+  white-space: nowrap;
 }
 
 input[type="number"] {
