@@ -416,7 +416,7 @@ input[type="number"]{
   border: none; /* Remove the border from the label */
   transform: translate(50%, -11.5%);
   font-size: 20px;
-  padding: 0px 10px 10px 10px;
+  padding: 0px 12px 5px 10px;
 }
 
 input[type="number"] {
@@ -442,7 +442,19 @@ input[type="number"]:focus {
   margin-top: 10px;
 }
 
+/*REGLAS PARA ARREGLAR IOS */
+body {
+  padding-top: constant(safe-area-inset-top);
+  padding-top: env(safe-area-inset-top);
+}
 
+input[type="number"] {
+  font-family: 'Montserrat', sans-serif;
+
+  /* Otros estilos */
+}
+
+/*HASTA ACA IOS*/
 
 /**media querys*/
 @media screen and (max-width: 870px) {
@@ -527,9 +539,10 @@ order: 0;
   margin: 10px 0px;
 }
 
+
 .corner-label{
-    left: -30px;
-      transform: translate(120%, -11.5%);
+  left: 50%; /* Centra el label horizontalmente */
+  transform: translateX(-50%);
 }
 
 
@@ -544,17 +557,3 @@ order: 0;
   padding-left: 18px;
 }
 }
-
-/*REGLAS PARA ARREGLAR IOS */
-body {
-  padding-top: constant(safe-area-inset-top);
-  padding-top: env(safe-area-inset-top);
-}
-
-input[type="number"] {
-  font-family: 'Montserrat', sans-serif;
-
-  /* Otros estilos */
-}
-
-/*HASTA ACA IOS*/
