@@ -1,4 +1,6 @@
-
+/* MODIFICAR EL PADDING DE LOS LABELS PARA LA VERSION MOVIL
+   MODIFICAR EL PADDING DEL INPUT PARA QUE ESTE CENTRADO
+   REVISAR PROBLEMA QUE LA FUENTE NO CAMBIA EN LA COMPU DE TIAGO*/
 
 
 /* RESET DE CSS */
@@ -390,7 +392,7 @@ body::before {
   
     .bordered-box {
 
-      padding: 0px;
+      padding: 10px;
 
     }
 
