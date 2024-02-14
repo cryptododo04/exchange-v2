@@ -388,7 +388,11 @@ body::before {
       gap: 0px;
     }
   
+    .bordered-box {
 
+      padding: 0px;
+
+    }
 
     .input-group input,
     .output-group input {
@@ -497,12 +501,21 @@ input[type="number"]{
   padding: 0px 10px 10px 10px;
 }
 
-input {
-  font-family: 'Courier New', Courier, monospace; /* Cambiar la fuente */
-  color: #333; /* Cambiar el color del texto */
-  padding: 5px; /* Añadir espacio alrededor del texto */
-  border: 1px solid #ccc; /* Añadir borde */
-  border-radius: 5px; /* Añadir bordes redondeados */
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Añadir sombra */
-  outline: none; /* Eliminar el contorno al hacer clic */
+input[type="number"] {
+    font-family: 'Montserrat', sans-serif; /* Aplicar la fuente Montserrat a los input numéricos */
+    /* Otros estilos opcionales */
+    font-weight: 600; /* Peso de la fuente (400 es regular) */
+    font-style: normal; /* Estilo de la fuente (normal es sin cursiva) */
+    font-size: 18px; /* Tamaño de la fuente */
+    color: #333; /* Color del texto */
+    /* Otros estilos de diseño */
+    border: 1px solid #ccc; /* Borde del input */
+
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra alrededor del input */
+    outline: none; /* Eliminar el contorno al hacer clic */
+}
+
+input[type="number"]:focus {
+    border-color: #007bff; /* Cambiar color del borde al estar enfocado */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Cambiar sombra al estar enfocado */
 }

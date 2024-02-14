@@ -1,3 +1,13 @@
+
+/*FALTA REPUBLICA DOMINACA(ARGENTINA-COLOMBIA_VENEZUELA-USDT)
+        COSTA RICA (COLOMBIA-ARGENTINA-VENEZUELA-USDT)
+        ECUADOR (ARGENTINA-COLOMBIA-VENEZUELA-USDT)
+        BRASIL (ARGENTINA-COLOMBIA-VENEZUELA-USDT)
+        ESTADOS UNIDOS (ARGENTINA-COLOMBIA-VENEZUELA-USDT)
+        CHILE (ARGENTINA-VENEZUELA-USDT)
+        PERU (ARGENTINA-VENEZUELA-USDT)
+        VENEZUELA (ARS-COLOMBIA-USDT) */ 
+
 // Objeto con los porcentajes de comisión por país de destino
 const comisiones = {
     'Paypal (USD)' : 10,
@@ -86,7 +96,7 @@ function obtenerCurrency(countryName) {
         'Colombia (COP)': 'COP',
         'Costa Rica (CRC)': 'CRC',
         'Ecuador (USD)': 'USD',
-        'España (EUR)': 'EUR',
+        'España (EUR)': '(EUR)',
         'Estados Unidos (USD): (20% de comision)': 'USD',
         'Estados Unidos (USD)': 'USD',
         'Mexico (MXN)': 'MXN',
