@@ -123,14 +123,20 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
     let resultado = 0.00;
     let comisionNuestra = 0.00;
 
-    //DECLARACION DE VARIABLE DE COMISION DE CASA DE CAMBIO
-    let porcentajeComision = 0.20;
+    
+    //DECLARACION DE VARIABLE DE COMISION DE CASA DE CAMBIO SIN PAYPAL
+    let porcentajeComision = 0.16;
+    //DECLARACION DE VARIABLE DE COMISION DE CASA DE CAMBIO CON PAYPAL
+    let porcentajeComisionPaypal = 0.20;
 
     //DECLARACION DE VARIABLE TAKENOS
     let takenos = 0.93605;
 
-    //DECLARACION DE VARIABLO DE ARS A USDT
+    //DECLARACION DE VARIABLE DE ARS A USDT
     let precioArsUsdt = 1200;
+
+    //DECLARACION DE VARIABLE DE ARS A USDT OPERACION COLOMBIA (EURO A BOLIVAR ---ESP-VENEZUELA--)
+    let precioArsUsdtCol = 1250;
 
     //DECLARACION DE VARIABLE DE PRECIO DE USDT EN ARS
     let PrecioUsdtArs = 1200;   
@@ -144,18 +150,31 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
     //DECLARACION DE VARIABLE DE MXN A COP
     let precioMxnCop = 3770;
 
+    //DECLARACION DE VARIABLE DE MXN A USDT (MXN A USDT --------- MEXICO-USDT-----------)
+    let precioMxnUsdt = 18.5;
+
     //DECLARACION DE VARIABLE DE MXN A VES
 
     let precioMxnVes = 35.5;
 
     //DECLARACION DE VARIABLE DE EUR A ARS
-    let precioEuroArs = 1000 ;
+    let precioEuroArs = 1000;
+
+    //DECLARACION DE VARIABLE DE EUR A VES (EURO A BOLIVAR -----VENEZUELA--------------)
+    let precioEuroVes = 35.5;
+    
+
+    //DECLARACION DE VARIABLE DE EUR A COP (EURO A $ COLOMBIANOS -----COLOMBIA--------------)
+    let precioEuroCop = 3770;
 
     
 
 
     //DECLARACION DE VARIABLE DE PRECIO DE USDT EN ARS
-    let PrecioPaypalArs = 1000;   
+    let PrecioPaypalArs = 1000;
+    
+    //DECLARACION DE VARIABLE DE PRECIO PAYPAL A MXN
+    let precioPaypalMXN = 17.26;
 
     //DECLARACION DE VARIABLE DE PRECIO DE USDT A PAYPAL
     let PrecioUsdtPaypal = 0.93605;
@@ -172,20 +191,24 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
             resultado = cantidadOrigen / PrecioUsdtArs;
 
-            resultado = resultado - (resultado * porcentajeComision);
+            resultado = resultado - (resultado * porcentajeComisionPaypal);
     
 
             return resultado.toFixed(2); // Redondeo a 0 decimales
         } 
-         else if (paisDestino === 'Chile (CLP) RUT') {
-            comision = cantidadOrigen * 0.15; // Comisión del 15% para Chile (CLP) RUT
+         else if (paisDestino === 'COLOMBIA (COP)') {
+            
+            resultado = cantidadOrigen / precioArsUsdtCol;
+
+            resultado = resultado * porcentajeComision;
+
         }
         else if (paisDestino === 'USDT (USDT)'){
             resultado = cantidadOrigen / precioArsUsdt;
 
             console.log("cantidadOrigen / 18,5: " + resultado);
 
-            comisionNuestra = resultado * 0.16;
+            comisionNuestra = resultado * porcentajeComision;
             
             console.log("resultado / 0.16: " + resultado);
 
@@ -203,9 +226,9 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
     }
     else if (paisOrigen === 'ESPAÑA (EUR)'){
 
-        if(paisDestino === 'ARGENTINA (ARS)'){
+        if      (paisDestino === 'ARGENTINA (ARS)'){
 
-            resultado = cantidadOrigen - (cantidadOrigen * 0.16);
+            resultado = cantidadOrigen - (cantidadOrigen * porcentajeComision);
 
             console.log("resultado de EURO: " + resultado);
 
@@ -216,6 +239,54 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             console.log("resultado de EURO A ARS: " + resultado);
 
             return resultado.toFixed(2);
+        }
+        else if (paisDestino === 'VENEZUELA (VES)'){
+            
+            resultado = cantidadOrigen - (cantidadOrigen * porcentajeComision);
+
+            console.log("resultado de EURO: " + resultado);
+
+            
+
+            resultado = resultado * precioEuroVes;
+
+            console.log("resultado de EURO A ARS: " + resultado);
+
+            return resultado;
+
+        }
+
+        else if (paisDestino === 'COLOMBIA (COP)'){
+            resultado = cantidadOrigen - (cantidadOrigen * porcentajeComision);
+
+            console.log("resultado de EURO: " + resultado);
+
+            
+
+            resultado = resultado * precioEuroCop;
+
+            console.log("resultado de EURO A ARS: " + resultado);
+
+            return resultado;
+        }
+        else if (paisDestino === 'PAYPAL (USD)'){
+            resultado = cantidadOrigen - (cantidadOrigen * porcentajeComisionPaypal);
+
+            console.log("resultado de EURO-PAYPAL: " + resultado);
+
+            
+
+            resultado = resultado * PrecioUsdtPaypal;
+
+            console.log("resultado de EURO A PAYPAL ES: " + resultado);
+
+            return resultado.toFixed(2);
+        }
+
+        else if (paisDestino === 'USDT (USDT)'){
+            resultado = cantidadOrigen - (cantidadOrigen * porcentajeComision);
+
+            return resultado;
         }
     }
     else if (paisOrigen === 'MEXICO (MXN)') {
@@ -229,11 +300,11 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             
             console.log("cantidad de origen: " + cantidadOrigen);
             //pasaje de MXN a USDT
-            resultado = cantidadOrigen / 18.5;
+            resultado = cantidadOrigen / precioMxnUsdt;
 
             console.log("cantidadOrigen / 18,5: " + resultado);
 
-            comisionNuestra = resultado * 0.16;
+            comisionNuestra = resultado * porcentajeComision;
             
             console.log("resultado / 0.16: " + resultado);
 
@@ -251,12 +322,12 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
         {
             console.log("cantidad de origen: " + cantidadOrigen);
             //pasaje de MXN a USDT
-            resultado = cantidadOrigen / 18.5;
+            resultado = cantidadOrigen / precioMxnUsdt;
 
             console.log("cantidadOrigen / 18,5: " + resultado);
 
 
-            resultado = resultado - (resultado * 0.16)
+            resultado = resultado - (resultado * porcentajeComision)
             console.log("resultado / 0.16: " + resultado);
 
 
@@ -271,12 +342,12 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
         else if (paisDestino === 'VENEZUELA (VES)')
         {
                         //pasaje de MXN a USDT
-                        resultado = cantidadOrigen / 18.5;
+                        resultado = cantidadOrigen / precioMxnUsdt;
 
                         console.log("cantidadOrigen / 18,5: " + resultado);
             
             
-                        resultado = resultado - (resultado * 0.16)
+                        resultado = resultado - (resultado * porcentajeComision)
                         console.log("resultado / 0.16: " + resultado);
             
             
@@ -292,12 +363,12 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
         else if (paisDestino === 'USDT (USDT)')
         {
                         //pasaje de MXN a USDT
-                        resultado = cantidadOrigen / 18.5;
+                        resultado = cantidadOrigen / precioMxnUsdt;
 
                         console.log("cantidadOrigen / 18,5: " + resultado);
             
             
-                        resultado = resultado - (resultado * 0.16)
+                        resultado = resultado - (resultado * porcentajeComision)
                         console.log("resultado / 0.16: " + resultado);
 
                         return resultado;
@@ -320,7 +391,7 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             // Cálculo de USDT
             resultado = cantidadConComisionTotal * PrecioUsdtPaypal;
             // Cálculo de la comisión de nuestro servicio
-            comisionNuestra = resultado * porcentajeComision;
+            comisionNuestra = resultado * porcentajeComisionPaypal;
             resultado = resultado - comisionNuestra;
             
             // Pasaje a pesos y redondeo
@@ -334,7 +405,7 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             resultado = cantidadConComisionTotal * PrecioUsdtPaypal;
             // Cálculo de la comisión de nuestro servicio
             
-            comisionNuestra = resultado * porcentajeComision;
+            comisionNuestra = resultado * porcentajeComisionPaypal;
             
             resultado = resultado - comisionNuestra;
             
@@ -348,46 +419,39 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
         else if (paisDestino === 'MEXICO (MXN)') {
             // Cálculo de la comisión de PayPal
             // Cálculo de USDT
-            let resultado = cantidadConComisionTotal * PrecioUsdtPaypal;
+            resultado = cantidadConComisionTotal * PrecioUsdtPaypal;
 
             // Cálculo de la comisión de nuestro servicio
-            comisionNuestra = resultado * porcentajeComision;
+            comisionNuestra = resultado * porcentajeComisionPaypal;
 
             resultado = resultado - comisionNuestra;
             
             // Pasaje a pesos mexicanos y redondeo
-            resultado = resultado * 17.26;
-            return resultado.toFixed(0);
-        } else if (paisDestino === 'USDT (USDT)') {
+            resultado = resultado * precioPaypalMXN;
+            return resultado.toFixed(2);
+        } 
+        else if (paisDestino === 'USDT (USDT)') {
 
             // Cálculo de USDT
-            let resultado = cantidadConComisionTotal * 0.93605;
+            resultado = cantidadConComisionTotal * 0.93605;
 
             // Cálculo de la comisión de nuestro servicio
-            let comisionNuestra = resultado * 0.2;
+            comisionNuestra = resultado * porcentajeComisionPaypal;
             resultado = resultado - comisionNuestra;
             // Redondeo a 2 decimales
             return resultado.toFixed(2);
-        } else if (paisDestino === 'VENEZUELA (VES)') {
+        }
+        else if (paisDestino === 'VENEZUELA (VES)') {
             
             // Cálculo de USDT
             resultado = cantidadConComisionTotal * 0.93605;
             // Cálculo de la comisión de nuestro servicio
-            let comisionNuestra = resultado * 0.2;
+            let comisionNuestra = resultado * porcentajeComisionPaypal;
             resultado = resultado - comisionNuestra;
             // Pasaje a bolívares y redondeo
             resultado = resultado * 35.5;
             return resultado.toFixed(0);
         }
-    }
-    else if (paisDestino === 'PERU (SOL)')
-    {
-        if(paisDestino === 'USDT (USDT)')
-        {
-            resultado = resultado * 35.5;
-            return resultado.toFixed(0);
-        }
-
     }
     // Agrega más casos para otros países como origen
 
