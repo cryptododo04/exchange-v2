@@ -26,6 +26,7 @@ function selectCountryOrigen(country) {
     document.getElementById("countryDropdownOrigen").innerText = country;
     let currencyOrigen = obtenerCurrency(country);
     document.getElementById("currencyLabelOrigen").innerText = 'Envias ' + currencyOrigen;
+    
 
     let imageUrl = obtenerUrlImagen(country);
     let imagen = document.querySelector(".origen-imagen img");
@@ -39,6 +40,9 @@ function selectCountryOrigen(country) {
             imagen.classList.remove("slide-in-out", "active");
         }, 100);
     }, 10);
+
+
+    
 }
 
 function selectCountryDestino(country2) {
@@ -80,7 +84,7 @@ function obtenerUrlImagen(countryName) {
         'Prex (ARS-USD)': 'images/prex.png',
         'Revolut (USD)': 'images/revolut.png',
         'Skrill (USD)': 'images/skrill.png',
-        'Bitcoin (BTC)': 'images/bitcoin.png',
+        'Bitcoin (BTC)': 'images/bitcoin2.png',
         'Ethereum (ETH)': 'images/ethereum.png',
         'USDT (USDT)': 'images/usdt.png'
     };
@@ -91,25 +95,25 @@ function obtenerCurrency(countryName) {
     let currencies = {
         'Argentina (ARS)': '(ARS)',
         'Brasil (R$)': '(R$)',
-        'Chile (CLP)': 'CLP',
-        'Chile (CLP) RUT': 'CLP', // Reutilizando la misma imagen que para 'Chile (CLP)'
-        'Colombia (COP)': 'COP',
-        'Costa Rica (CRC)': 'CRC',
-        'Ecuador (USD)': 'USD',
+        'Chile (CLP)': '(CLP)',
+        'Chile (CLP) RUT': '(CLP)', // Reutilizando la misma imagen que para 'Chile (CLP)'
+        'Colombia (COP)': '(COP)',
+        'Costa Rica (CRC)': '(CRC)',
+        'Ecuador (USD)': '(USD)',
         'España (EUR)': '(EUR)',
         'Estados Unidos (USD): (20% de comision)': 'USD',
         'Estados Unidos (USD)': 'USD',
-        'Mexico (MXN)': 'MXN',
-        'Peru (SOL)': 'SOL',
-        'Republica Dominicana (POP)': 'POp',
-        'Venezuela (VES)': 'VES',
-        'Paypal (USD)': 'USD',
-        'Prex (ARS-USD)': 'ARS-USD',
-        'Revolut (USD)': 'USD',
-        'Skrill (USD)': 'USD',
-        'Bitcoin (BTC)': 'BTC',
-        'Ethereum (ETH)': 'ETH',
-        'USDT (USDT)': 'USDT'
+        'Mexico (MXN)': '(MXN)',
+        'Peru (SOL)': '(SOL)',
+        'Republica Dominicana (POP)': '(POP)',
+        'Venezuela (VES)': '(VES)',
+        'Paypal (USD)': '(USD)',
+        'Prex (ARS-USD)': '(ARS-USD)',
+        'Revolut (USD)': '(USD)',
+        'Skrill (USD)': '(USD)',
+        'Bitcoin (BTC)': '(BTC)',
+        'Ethereum (ETH)': '(ETH)',
+        'USDT (USDT)': '(USDT)'
     };
     return currencies[countryName] || '';
 }
