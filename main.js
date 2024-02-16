@@ -32,7 +32,10 @@
     ECUADOR()
     ESPAÑA()
     ESTADOS UNIDOS()
-*/ 
+*/
+
+// LOGICA DE MENSAJE COPY CLIPBOARD Y CHAT DE TELEGRAM
+
 let imageNameOrigen = 'earth.png';
 let imageNameDestino = 'transfer.png';
 
@@ -77,8 +80,8 @@ function copiarAlPortapapeles(paisOrigen, paisDestino, cantidadOrigen, cantidadD
     document.querySelector(".destino-imagen img").src = 'images/' + imageNameDestino;
 
     // Restablecer los valores de los inputs de números y los labels
-    document.getElementById("cantidad-origen").value = 0;
-    document.getElementById("cantidad-destino").value = 0;
+    document.getElementById("cantidad-origen").value = 0.00;
+    document.getElementById("cantidad-destino").value = 0.00;
     document.getElementById("currencyLabelOrigen").innerText = 'Tu envias';
     document.getElementById("currencyLabelDestino").innerText = 'Tu recibes';
 }
@@ -90,6 +93,8 @@ document.getElementById('telegramLink').addEventListener('click', function(event
     window.open(this.href, '_blank');
 });
 
+
+//LOGICA DE FUNCION DE SELECCION DE PAISES DE ORIGEN Y DESTINO
 function selectCountryOrigen(country) {
     document.getElementById("countryDropdownOrigen").innerText = country;
     let currencyOrigen = obtenerCurrency(country);
