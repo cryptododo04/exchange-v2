@@ -40,18 +40,19 @@ function seleccionarPaisesYCopiar() {
     let paisOrigen = document.getElementById("countryDropdownOrigen").innerText.trim();
     let paisDestino = document.getElementById("countryDropdownDestino").innerText.trim();
     let cantidadOrigen = document.getElementById("cantidad-origen").value;
+    let cantidadDestino = document.getElementById("cantidad-destino").value;
     selectCountryOrigen(paisOrigen);
     selectCountryDestino(paisDestino);
     setTimeout(() => {
-        copiarAlPortapapeles(paisOrigen, paisDestino, cantidadOrigen);
+        copiarAlPortapapeles(paisOrigen, paisDestino, cantidadOrigen, cantidadDestino);
     }, 0); // Ejecutar después de las operaciones actuales para evitar el problema de las imágenes
 }
 
-function copiarAlPortapapeles(paisOrigen, paisDestino, cantidadOrigen) {
+function copiarAlPortapapeles(paisOrigen, paisDestino, cantidadOrigen, cantidadDestino) {
     let texto = document.getElementById("texto");
 
     if (paisOrigen === 'ARGENTINA (ARS)') {
-        texto.value = `Hola, quisiera cambiar ${cantidadOrigen} de ${paisOrigen} a ${paisDestino}`;
+        texto.value = `Hola, quisiera cambiar ${cantidadOrigen} de ${paisOrigen} a ${cantidadDestino} de ${paisDestino}`;
     } else {
         texto.value = "Mensaje por defecto";
     }
@@ -71,6 +72,12 @@ function copiarAlPortapapeles(paisOrigen, paisDestino, cantidadOrigen) {
     // Restaurar las imágenes después de copiar al portapapeles
     document.querySelector(".origen-imagen img").src = 'images/' + imageNameOrigen;
     document.querySelector(".destino-imagen img").src = 'images/' + imageNameDestino;
+
+    // Restablecer los valores de los inputs de números y los labels
+    document.getElementById("cantidad-origen").value = 0;
+    document.getElementById("cantidad-destino").value = 0;
+    document.getElementById("currencyLabelOrigen").innerText = 'Tu envias';
+    document.getElementById("currencyLabelDestino").innerText = 'Tu recibes';
 }
 
 document.getElementById('telegramLink').addEventListener('click', function(event) {
