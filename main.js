@@ -34,8 +34,36 @@
     ESTADOS UNIDOS()
 */ 
 
+document.getElementById("copiar").onclick = function() {
+    // Variable con el valor del ARS al USDT
+    var precioArsUsdt = 100; // Ejemplo
+    
+    // Mensaje con la variable
+    var mensaje = `El valor del ARS al USDT es ${precioArsUsdt}`;
+    
+    // Actualizar el valor del input
+    document.getElementById("mensaje").value = mensaje;
+    
+    // Seleccionar el texto del input
+    document.getElementById("mensaje").select();
+    document.getElementById("mensaje").setSelectionRange(0, 99999); // Para dispositivos móviles
+    
+    // Copiar el texto al portapapeles
+    document.execCommand("copy");
+    
+    // Mostrar un mensaje de éxito
+    alert("Mensaje copiado al portapapeles");
+};
+
+
 
     
+document.getElementById('telegramLink').addEventListener('click', function(event) {
+    event.preventDefault();
+
+    // Abrir el enlace en una nueva ventana
+    window.open(this.href, '_blank');
+});
 
 // Objeto con los porcentajes de comisión por país de destino
 const comisiones = {
