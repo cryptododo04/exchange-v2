@@ -33,18 +33,46 @@
     ESPAÑA()
     ESTADOS UNIDOS()
 */ 
-function copiarAlPortapapeles() {
+let imageNameOrigen = 'earth.png';
+let imageNameDestino = 'transfer.png';
+
+function seleccionarPaisesYCopiar() {
+    let paisOrigen = document.getElementById("countryDropdownOrigen").innerText.trim();
+    let paisDestino = document.getElementById("countryDropdownDestino").innerText.trim();
+    let cantidadOrigen = document.getElementById("cantidad-origen").value;
+    selectCountryOrigen(paisOrigen);
+    selectCountryDestino(paisDestino);
+    setTimeout(() => {
+        copiarAlPortapapeles(paisOrigen, paisDestino, cantidadOrigen);
+    }, 0); // Ejecutar después de las operaciones actuales para evitar el problema de las imágenes
+}
+
+function copiarAlPortapapeles(paisOrigen, paisDestino, cantidadOrigen) {
     let texto = document.getElementById("texto");
-    
-    //agregar aca la linea de texto.value para cambiar el valor
+
+    if (paisOrigen === 'ARGENTINA (ARS)') {
+        texto.value = `Hola, quisiera cambiar ${cantidadOrigen} de ${paisOrigen} a ${paisDestino}`;
+    } else {
+        texto.value = "Mensaje por defecto";
+    }
+
+    // Restablecer la imagen y el país de origen antes de copiar al portapapeles
+    document.querySelector(".origen-imagen img").src = 'images/earth.png';
+    document.getElementById("countryDropdownOrigen").innerText = 'Seleccione origen';
+
+    // Restablecer la imagen y el país de destino antes de copiar al portapapeles
+    document.querySelector(".destino-imagen img").src = 'images/transfer.png';
+    document.getElementById("countryDropdownDestino").innerText = 'Seleccione destino';
+
     texto.select();
     document.execCommand("copy");
     alert("Texto copiado al portapapeles: " + texto.value);
+
+    // Restaurar las imágenes después de copiar al portapapeles
+    document.querySelector(".origen-imagen img").src = 'images/' + imageNameOrigen;
+    document.querySelector(".destino-imagen img").src = 'images/' + imageNameDestino;
 }
 
-
-
-    
 document.getElementById('telegramLink').addEventListener('click', function(event) {
     event.preventDefault();
 
@@ -52,30 +80,13 @@ document.getElementById('telegramLink').addEventListener('click', function(event
     window.open(this.href, '_blank');
 });
 
-
-
-
 function selectCountryOrigen(country) {
     document.getElementById("countryDropdownOrigen").innerText = country;
     let currencyOrigen = obtenerCurrency(country);
     document.getElementById("currencyLabelOrigen").innerText = 'Envias ' + currencyOrigen;
-    
 
     let imageUrl = obtenerUrlImagen(country);
-    let imagen = document.querySelector(".origen-imagen img");
-
-    imagen.classList.add("slide-in-out");
-
-    setTimeout(() => {
-        imagen.src = imageUrl;
-        imagen.classList.add("active");
-        setTimeout(() => {
-            imagen.classList.remove("slide-in-out", "active");
-        }, 100);
-    }, 10);
-
-
-    
+    document.querySelector(".origen-imagen img").src = imageUrl;
 }
 
 function selectCountryDestino(country2) {
@@ -84,18 +95,9 @@ function selectCountryDestino(country2) {
     document.getElementById("currencyLabelDestino").innerText = 'Recibes ' + currencyDestino;
 
     let imageUrl = obtenerUrlImagen(country2);
-    let imagen = document.querySelector(".destino-imagen img");
-
-    imagen.classList.add("slide-in-out");
-
-    setTimeout(() => {
-        imagen.src = imageUrl;
-        imagen.classList.add("active");
-        setTimeout(() => {
-            imagen.classList.remove("slide-in-out", "active");
-        }, 100);
-    }, 10);
+    document.querySelector(".destino-imagen img").src = imageUrl;
 }
+
 
 function obtenerUrlImagen(countryName) {
     let imageUrls = {
@@ -119,7 +121,10 @@ function obtenerUrlImagen(countryName) {
         'Skrill (USD)': 'images/skrill.png',
         'Bitcoin (BTC)': 'images/bitcoin2.png',
         'Ethereum (ETH)': 'images/ethereum.png',
-        'USDT (USDT)': 'images/usdt.png'
+        'USDT (USDT)': 'images/usdt.png',
+        'SELECCIONE ORIGEN': 'images/earth.png',
+        'SELECCIONE DESTINO': 'images/transfer.png'
+
     };
     return imageUrls[countryName] || ''; // Si no se encuentra la URL, devuelve una cadena vacía
 }
