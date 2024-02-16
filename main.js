@@ -51,23 +51,26 @@ function seleccionarPaisesYCopiar() {
 function copiarAlPortapapeles(paisOrigen, paisDestino, cantidadOrigen, cantidadDestino) {
     let texto = document.getElementById("texto");
 
-    if (paisOrigen === 'ARGENTINA (ARS)') {
-        texto.value = `Hola, quisiera cambiar ${cantidadOrigen} de ${paisOrigen} a ${cantidadDestino} de ${paisDestino}`;
+    if (paisOrigen === 'SELECCIONE ORIGEN' || paisDestino ==='SELECCIONE DESTINO') {
+        alert("ERROR, Seleccione pais de origen y de destino");
     } else {
-        texto.value = "Mensaje por defecto";
+        
+        texto.value = `Hola, quisiera cambiar ${cantidadOrigen} de ${paisOrigen} a ${cantidadDestino} de ${paisDestino}`;
+        
+        // Restablecer la imagen y el país de origen antes de copiar al portapapeles
+        document.querySelector(".origen-imagen img").src = 'images/earth.png';
+        document.getElementById("countryDropdownOrigen").innerText = 'Seleccione origen';
+
+        // Restablecer la imagen y el país de destino antes de copiar al portapapeles
+        document.querySelector(".destino-imagen img").src = 'images/transfer.png';
+        document.getElementById("countryDropdownDestino").innerText = 'Seleccione destino';
+
+        texto.select();
+        document.execCommand("copy");
+        alert("Texto copiado al portapapeles: " + texto.value);
     }
 
-    // Restablecer la imagen y el país de origen antes de copiar al portapapeles
-    document.querySelector(".origen-imagen img").src = 'images/earth.png';
-    document.getElementById("countryDropdownOrigen").innerText = 'Seleccione origen';
 
-    // Restablecer la imagen y el país de destino antes de copiar al portapapeles
-    document.querySelector(".destino-imagen img").src = 'images/transfer.png';
-    document.getElementById("countryDropdownDestino").innerText = 'Seleccione destino';
-
-    texto.select();
-    document.execCommand("copy");
-    alert("Texto copiado al portapapeles: " + texto.value);
 
     // Restaurar las imágenes después de copiar al portapapeles
     document.querySelector(".origen-imagen img").src = 'images/' + imageNameOrigen;
