@@ -1,12 +1,40 @@
 
-/*FALTA REPUBLICA DOMINACA(ARGENTINA-COLOMBIA_VENEZUELA-USDT)
-        COSTA RICA (COLOMBIA-ARGENTINA-VENEZUELA-USDT)
-        ECUADOR (COLOMBIA-VENEZUELA)
-        BRASIL (ARGENTINA-COLOMBIA-VENEZUELA-USDT)
-        ESTADOS UNIDOS (ARGENTINA-COLOMBIA-VENEZUELA-USDT)
-        CHILE (VENEZUELA)
-        PERU (VENEZUELA)
-        VENEZUELA (COLOMBIA) */ 
+/*HASTA AHORA TENEMOS:
+
+        ARGENTINA(COLOMBIA-PAYPAL-USDT)
+        CHILE (ARGENTINA-USDT)
+        COSTA RICA (ARGENTINA-USDT)
+        COLOMBIA(ARGENTINA-USDT)
+        ECUADOR (ARGENTINA-USDT)
+        ESPAÑA (ARGENTINA-USDT)
+        ESTADOS UNIDOS (ARGENTINA-USDT)
+        MEXICO(ARGENTINA
+        ECUADOR (ARGENTINA-USDT)
+        ESPAÑA (ARGENTINA-USDT)
+        ESTADOS UNIDOS (ARGENTINA-USDT)
+        PERU (ARGENTINA-USDT)
+        REPUBLICA DOMINACA(ARGENTINA-USDT)
+        VENEZUELA () 
+        ECUADOR (ARGENTINA-USDT)
+        ESPAÑA (ARGENTINA-USDT)
+        ESTADOS UNIDOS (ARGENTINA-USDT)
+        PERU (ARGENTINA-USDT)
+        REPUBLICA DOMINACA(ARGENTINA-USDT)
+        VENEZUELA () )
+        PERU (ARGENTINA-USDT)
+        REPUBLICA DOMINACA(ARGENTINA-USDT)
+        VENEZUELA () 
+
+    CUALES FALTAN:
+    ARGENTINA()
+    BRASIL()
+    CHILE()
+    ECUADOR()
+    ESPAÑA()
+    ESTADOS UNIDOS()
+*/ 
+
+    
 
 // Objeto con los porcentajes de comisión por país de destino
 const comisiones = {
@@ -149,8 +177,12 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
     //DECLARACION DE VARIABLE DE ARS A USDT
     let precioArsUsdt = 1200;
 
+
     //DECLARACION DE VARIABLE DE ARS A USDT OPERACION COLOMBIA (EURO A BOLIVAR ---ESP-VENEZUELA--)
     let precioArsUsdtCol = 1250;
+
+        //DECLARACION DE VARIABLE DE ARS A USDT OPERACION COLOMBIA (EURO A BOLIVAR ---ESP-VENEZUELA--)
+        let precioArsUsdtVes = 1250;
 
     //DECLARACION DE VARIABLE DE CLP A USDT  (CLP A USDT ---CHILE-USDT--)
     let precioClpUsdt = 1020;
@@ -159,11 +191,14 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
     let precioClpArs = 1000;
 
     //DECLARACION DE VARIABLE DE COP A USDT (COLOMBIA A ARGENTINA ------COLOMBIA-ARGENTINA----)
-    let precioCopUsdt = 3860;
+    let precioCopUsdt = 3950;
 
 
     //DECLARACION DE VARIABLE DE COP A ARS (COLOMBIA A ARGENTINA ------COLOMBIA-ARGENTINA----)
     let precioCopArs = 1000;
+
+    //DECLARACION DE VARIABLE DE COP A VES (COLOMBIA A VENEZUELA ------COLOMBIA-USDT-VENEZUELA)
+    let precioCopVes = 35.5; 
 
     //DECLARACION DE VARIABLE A CRC A USDT A ARS (CRC A USDT A ARS ---COSTA RICA-USDT-ARGENTINA---) 
     let precioCrcUsdtArs = 1000;
@@ -174,7 +209,7 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
     //DECLARACION DE VARIABLE DE PRECIO DE USDT EN ARS
     let PrecioUsdtArs = 1200;   
 
-    //DECLARACION DE VARIABLE DE PRECIO DE USDT EN ARS
+    //DECLARACION DE VARIABLE DE PRECIO DE COP A USDT A ARS(COP A USDT A ARS --COLOMBIA-USDT-ARGENTINA--) 
     let PrecioUsdtCop = 3770;
 
     //DECLARACION DE VARIABLE DE MXN A ARS
@@ -205,6 +240,12 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
     //DECLARACION DE VARIABLE DE EUR A COP (EURO A $ COLOMBIANOS -----COLOMBIA--------------)
     let precioEuroCop = 3770;
+
+    //DECLARACION DE VARIABLE DE POP A USDT(------REPUBLICA DOM A USDT------POP-USDT )
+    let precioPopUsdt = 62;
+
+    //DECLARACION DE VARIABLE DE POP A USDT A ARS (------REPUBLICA DOM A USDT A ARS----POP-USDT-ARS---)
+    let precioPopUsdtArs = 1000;
 
     //DECLARACION DE VARIABLE DE SOL A USDT (SOLES A USDT -----PERU-USDT-----------)
     let precioSolUsdt = 4.1;
@@ -241,7 +282,36 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
     if (paisOrigen === 'ARGENTINA (ARS)') {
 
-        if (paisDestino === 'PAYPAL (USD)') {
+        if (paisDestino === 'COLOMBIA (COP)') {
+            
+            resultado = cantidadOrigen / precioArsUsdtCol;
+
+            console.log(resultado * porcentajeComision)
+
+            resultado = resultado - resultado * porcentajeComision;
+
+            resultado = resultado * PrecioUsdtCop;
+
+            return resultado.toFixed(2);
+
+            
+        }
+
+        else if(paisDestino === 'VENEZUELA (VES)'){
+            
+            resultado = cantidadOrigen / precioArsUsdtVes;
+
+            console.log(resultado * porcentajeComision)
+
+            resultado = resultado - resultado * porcentajeComision;
+
+            resultado = resultado * precioVesUsdt;
+
+            return resultado.toFixed(2);
+
+        }
+
+        else if (paisDestino === 'PAYPAL (USD)') {
         
 
             resultado = cantidadOrigen / PrecioUsdtArs;
@@ -251,13 +321,7 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
             return resultado.toFixed(2); // Redondeo a 0 decimales
         } 
-         else if (paisDestino === 'COLOMBIA (COP)') {
-            
-            resultado = cantidadOrigen / precioArsUsdtCol;
 
-            resultado = resultado * porcentajeComision;
-
-        }
         else if (paisDestino === 'USDT (USDT)'){
             resultado = cantidadOrigen / precioArsUsdt;
 
@@ -340,6 +404,22 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             console.log(resultado);
 
             return resultado.toFixed(2);
+        }
+        else if(paisDestino === 'VENEZUELA (VES)'){
+
+            resultado = cantidadOrigen / precioCopUsdt;
+
+            console.log(cantidadOrigen / precioCopUsdt);
+
+            console.log(resultado * porcentajeComision);
+
+            resultado = resultado - resultado * porcentajeComision;
+
+    
+            resultado = resultado * precioCopVes;
+    
+            return resultado.toFixed(2);
+
         }
 
     }
@@ -715,6 +795,38 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
             resultado = resultado - resultado * porcentajeComision;
             
+            return resultado.toFixed(2);
+        }
+    }
+    else if (paisOrigen === 'REPUBLICA DOMINICANA (POP)'){
+
+        if(paisDestino === 'ARGENTINA (ARS)'){
+
+
+            resultado = cantidadOrigen / precioPopUsdt;
+
+            console.log(cantidadOrigen / precioPopUsdt);
+
+            console.log(resultado * porcentajeComision);
+
+            resultado = resultado - resultado * porcentajeComision;
+
+    
+            resultado = resultado * precioPopUsdtArs;
+    
+            return resultado.toFixed(2);
+
+        }
+        else if( paisDestino === 'USDT (USDT)'){
+
+            resultado = cantidadOrigen / precioPopUsdt;
+
+            console.log(cantidadOrigen / precioPopUsdt);
+
+            console.log(resultado * porcentajeComision);
+
+            resultado = resultado - resultado * porcentajeComision;
+
             return resultado.toFixed(2);
         }
     }
