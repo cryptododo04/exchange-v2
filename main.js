@@ -34,7 +34,9 @@
     ESTADOS UNIDOS()
 */ 
 function copiarAlPortapapeles() {
-    var texto = document.getElementById("texto");
+    let texto = document.getElementById("texto");
+    
+    //agregar aca la linea de texto.value para cambiar el valor
     texto.select();
     document.execCommand("copy");
     alert("Texto copiado al portapapeles: " + texto.value);
@@ -50,18 +52,7 @@ document.getElementById('telegramLink').addEventListener('click', function(event
     window.open(this.href, '_blank');
 });
 
-// Objeto con los porcentajes de comisión por país de destino
-const comisiones = {
-    'Paypal (USD)' : 10,
-    'Estados Unidos (USD)': 20,
-    'Chile (CLP) RUT': 15,
-    'España (EUR)': 10,
-    // Agrega más países y porcentajes según sea necesario
-};
 
-function redondearDosDecimales(numero) {
-    return Math.round(numero * 100) / 100;
-}
 
 
 function selectCountryOrigen(country) {
