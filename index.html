@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+
+    <style>
+        .dropdown-menu {
+            max-height: 200px; /* Ajusta la altura máxima según sea necesario */
+            overflow-y: auto; /* Agrega un scrollbar si la lista es más larga que la altura máxima */
+        }
+    </style>
+
+    <script defer src="./main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+
+  
+    <div class="card-container">
+        <div class="mat-card">
+            <div class="mat-card-header">
+
+                <div class="bordered-box">
+                  <label id="currencyLabelOrigen" class="corner-label">Tu envias</label>
+                  
+                
+
+                <div class="input-container">
+
+                <div class="input-group">
+                    <input type="number" id="cantidad-origen" class="form-control transform-animation" placeholder="0.00" inputmode="numeric">
+                    <div class="dropdown">
+                      <button id="countryDropdownOrigen" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Seleccione Origen
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="countryDropdownOrigen">
+                        
+                        <li class="dropdown-divider"></li>
+
+                        <li class="dropdown-header">Paises</li>
+
+                        <li class="dropdown-divider"></li>
+                        
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryOrigen('Argentina (ARS)', 'countryDropdownOrigen')">
+                            <img src="images/argentina.png" alt="Argentina">Argentina (ARS)
+                          </a>
+                        </li>
+
+
+                        <li>
+                          <div class=".item-container">
+                          <a class="dropdown-item" href="#" onclick="selectCountryOrigen('Brasil (R$)', 'countryDropdownOrigen')">
+                            <img src="images/brazil.png" alt="Brasil">Brasil (R$)
+                          </a>
+                        </div>
+                        </li>
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryOrigen('Chile (CLP)', 'countryDropdownOrigen')">
+                            <img src="images/chile.png" alt="Chile">Chile (CLP)
+                          </a>
+                        </li>
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryOrigen('Colombia (COP)', 'countryDropdownOrigen')">
+                            <img src="images/colombia.png" alt="Colombia">Colombia (COP)
+                          </a>
+                        </li>
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryOrigen('Costa Rica (CRC)', 'countryDropdownOrigen')">
+                            <img src="images/costa-rica.png" alt="Costa rica">Costa Rica (CRC)
+                          </a>
+                        </li>
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryOrigen('Ecuador (USD)', 'countryDropdownOrigen')">
+                            <img src="images/ecuador.png" alt="Ecuador">Ecuador (USD)
+                          </a>
+                        </li>
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryOrigen('España (EUR)', 'countryDropdownOrigen')">
+                            <img src="images/spain.png" alt="España">España (EUR)
+                          </a>
+                        </li>
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryOrigen('Estados Unidos (USD)', 'countryDropdownOrigen')">
+                            <img src="images/usa.png" alt="Estados Unidos">Estados Unidos (USD)
+                          </a>
+                        </li>
+
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryOrigen('Mexico (MXN)', 'countryDropdownOrigen')">
+                            <img src="images/mexico.png" alt="Mexico">Mexico (MXN)
+                          </a>
+                        </li>
+
+
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryOrigen('Peru (SOL)', 'countryDropdownOrigen')">
+                            <img src="images/peru.png" alt="Peru">Peru (SOL)
+                          </a>
+                        </li>
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryOrigen('Republica Dominicana (POP)', 'countryDropdownOrigen')">
+                            <img src="images/dominican-republic.png" alt="Republica Dominicana">Republica Dominicana (POP)
+                          </a>
+                        </li>
+
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryOrigen('Venezuela (VES)', 'countryDropdownOrigen')">
+                            <img src="images/venezuela.png" alt="Venezuela">Venezuela (VES)
+                          </a>
+                        </li>
+                        
+                        <!-- Wallet-->
+
+                        <li class="dropdown-divider"></li>
+
+                        <li class="dropdown-header">Wallets</li>
+
+                        <li class="dropdown-divider"></li>
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryOrigen('Paypal (USD)', 'countryDropdownOrigen')">
+                            <img src="images/paypal.png" alt="Paypal">Paypal (USD)
+                          </a>
+                        </li>
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryOrigen('Prex (ARS-USD)', 'countryDropdownOrigen')">
+                            <img src="images/prex.png " style="width: 64px;" alt="Prex">Prex (ARS-USD)
+                          </a>
+                        </li>
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryOrigen('Revolut (USD)', 'countryDropdownOrigen')">
+                            <img src="images/revolut.png" alt="Revolut">Revolut (USD)
+                          </a>
+                        </li>
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryOrigen('Skrill (USD)', 'countryDropdownOrigen')">
+                            <img src="images/skrill.png" alt="Skrill">Skrill (USD)
+                          </a>
+                        </li>
+
+
+                        <!-- Cryptomonedas-->
+
+                        <li class="dropdown-divider"></li>
+
+                        <li class="dropdown-header">Cryptomonedas</li>
+
+                        <li class="dropdown-divider"></li>
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryOrigen('Bitcoin (BTC)', 'countryDropdownOrigen')">
+                            <img src="images/bitcoin2.png" alt="Bitcoin">Bitcoin (BTC)
+                          </a>
+                        </li>
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryOrigen('Ethereum (ETH)', 'countryDropdownOrigen')">
+                            <img src="images/ethereum.png" alt="Ethereum">Ethereum (ETH)
+                          </a>
+                        </li>
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryOrigen('USDT (USDT)', 'countryDropdownOrigen')">
+                            <img src="images/usdt.png" alt="usdt">USDT (USDT)
+                          </a>
+                        </li>
+
+                        
+
+
+
+                        <!-- Agrega más elementos de lista para otros países -->
+                      </ul>
+                    </div>
+                    
+                </div>
+                  <div class="origen-imagen">
+                  <img src="images/earth.png" alt="planet earth">
+                </div>
+              </div>
+              </div>
+            </div>
+
+            <div class="loader"></div>
+
+            <div class="mat-card-header">
+
+                <div class="bordered-box">
+                  <label id="currencyLabelDestino" class="corner-label ">Tu recibes</label>
+                  
+
+                <div class="input-container">
+
+
+                <div class="input-group">
+
+                  <input type="number" class="form-control" id="cantidad-destino" placeholder="0.00" >
+                    
+                    <div class="dropdown">
+                      <button id="countryDropdownDestino" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Seleccione Destino
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="countryDropdownDestino">
+
+                        <li class="dropdown-divider"></li>
+
+                        <li class="dropdown-header">Paises</li>
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryDestino('Argentina (ARS)', 'countryDropdownDestino')">
+                            <img src="images/argentina.png" alt="Argentina">Argentina (ARS)
+                          </a>
+                        </li>
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryDestino('Brasil (R$)', 'countryDropdownOrigen')">
+                            <img src="images/brazil.png" alt="Brasil">Brasil (R$)
+                          </a>
+                        </li>
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryDestino('Chile (CLP)', 'countryDropdownOrigen')">
+                            <img src="images/chile.png" alt="Chile">Chile (CLP)
+                          </a>
+                        </li>
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryDestino('Chile (CLP) RUT', 'countryDropdownOrigen')">
+                            <img src="images/chile.png" alt="Chile">Chile (CLP): RUT
+                          </a>
+                        </li>
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryDestino('Colombia (COP)', 'countryDropdownOrigen')">
+                            <img src="images/colombia.png" alt="Colombia">Colombia (COP)
+                          </a>
+                        </li>
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryDestino('Costa Rica (CRC)', 'countryDropdownOrigen')">
+                            <img src="images/costa-rica.png" alt="Costa Rica">Costa rica (CRS)
+                          </a>
+                        </li>
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryDestino('Ecuador (USD)', 'countryDropdownOrigen')">
+                            <img src="images/ecuador.png" alt="Ecuador">Ecuador (USD)
+                          </a>
+                        </li>
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryDestino('España (EUR)', 'countryDropdownOrigen')">
+                            <img src="images/spain.png" alt="España">España (EUR)
+                          </a>
+                        </li>
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryDestino('Estados Unidos (USD): (20% de comision)', 'countryDropdownOrigen')">
+                            <img src="images/usa.png" alt="Estados Unidos">Estados Unidos (USD) (20% de comision)
+                          </a>
+                        </li>
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryDestino('Mexico (MXN)', 'countryDropdownOrigen')">
+                            <img src="images/mexico.png" alt="Mexico">Mexico (MXN)
+                          </a>
+                        </li>
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryDestino('Peru (SOL)', 'countryDropdownOrigen')">
+                            <img src="images/peru.png" alt="Peru">Peru (SOL)
+                          </a>
+                        </li>
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryDestino('Republica Dominicana (POP)', 'countryDropdownOrigen')">
+                            <img src="images/dominican-republic.png" alt="Republica Dominicana">Republica Dominicana (POP)
+                          </a>
+                        </li>
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryDestino('Venezuela (VES)', 'countryDropdownOrigen')">
+                            <img src="images/venezuela.png" alt="Venezuela">Venezuela (VES)
+                          </a>
+                        </li>
+                        <!-- Agrega más elementos de lista para otros países -->
+
+                        <li class="dropdown-divider"></li>
+
+                        <li class="dropdown-header">Wallets</li>
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryDestino('Paypal (USD)', 'countryDropdownOrigen')">
+                            <img src="images/paypal.png" alt="Paypal">Paypal (USD)
+                          </a>
+                        </li>
+
+                        <li>
+                          <a class="dropdown-item" id="prex" href="#" onclick="selectCountryDestino('Prex (ARS-USD)', 'countryDropdownOrigen')">
+                            <img src="images/prex.png" class="prex" alt="Prex">Prex (ARS-USD)
+                          </a>
+                        </li>
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryDestino('Revolut (USD)', 'countryDropdownOrigen')">
+                            <img src="images/revolut.png" alt="Revolut">Revolut (USD)
+                          </a>
+                        </li>
+
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryDestino('Skrill (USD)', 'countryDropdownOrigen')">
+                            <img src="images/skrill.png" alt="Skrill">Skrill (USD)
+                          </a>
+                        </li>
+
+
+
+
+                        <li class="dropdown-divider"></li>
+
+                        <li class="dropdown-header">Cryptomonedas</li>
+                        
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="selectCountryDestino('USDT (USDT)', 'countryDropdownOrigen')">
+                            <img src="images/usdt.png" alt="usdt">USDT (USDT)
+                          </a>
+                        </li>
+
+                      </ul>
+                    </div>
+                </div>
+                <div class="destino-imagen">
+                  <img src="images/transfer.png" alt="transferencia rapida">
+              </div>
+
+              </div>
+              </div>
+            </div>
+
+
+
+            <a href="https://web.telegram.org/#/im?p=@cambiosvip&text=Hola%2C%20aqu%C3%AD%20tienes%20la%20informaci%C3%B3n%20que%20viste%20en%20la%20p%C3%A1gina%20anterior" target="_blank">Abrir chat de Telegram con la persona</a>
+            <button onclick="copiarAlPortapapeles()">Copiar al portapapeles</button>
+            <input type="text" value="Mensaje predefinido para copiar" id="texto" readonly>
+            <br>
+            <!-- Botón para copiar al portapapeles -->
+
+
+            </a>
+
+
+        
+        
+          </div>
+    </div>
+
+
+
+
+</body>
+</html>
