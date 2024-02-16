@@ -35,19 +35,25 @@
 */ 
 
 document.getElementById("copiar").onclick = function() {
+    // Variable con el valor del ARS al USDT
+    var precioArsUsdt = 100; // Ejemplo
+    
+    // Mensaje con la variable
     var mensaje = `El valor del ARS al USDT es ${precioArsUsdt}`;
+    
+    // Actualizar el valor del input
+    document.getElementById("mensaje").value = mensaje;
 
-    // Crear un elemento de texto temporal para copiar al portapapeles
-    var tempInput = document.createElement("input");
+    // Crear un campo de texto oculto
+    var tempInput = document.createElement("textarea");
     tempInput.value = mensaje;
     document.body.appendChild(tempInput);
 
-    // Seleccionar y copiar el texto al portapapeles
+    // Seleccionar y copiar el texto
     tempInput.select();
-    tempInput.setSelectionRange(0, 99999); // Para dispositivos móviles
     document.execCommand("copy");
 
-    // Eliminar el elemento temporal
+    // Eliminar el campo de texto
     document.body.removeChild(tempInput);
 
     // Mostrar un mensaje de éxito
