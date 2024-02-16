@@ -33,32 +33,12 @@
     ESPAÑA()
     ESTADOS UNIDOS()
 */ 
-
-document.getElementById("copiar").onclick = function() {
-    // Variable con el valor del ARS al USDT
-    var precioArsUsdt = 100; // Ejemplo
-    
-    // Mensaje con la variable
-    var mensaje = `El valor del ARS al USDT es ${precioArsUsdt}`;
-    
-    // Actualizar el valor del input
-    document.getElementById("mensaje").value = mensaje;
-
-    // Crear un campo de texto oculto
-    var tempInput = document.createElement("textarea");
-    tempInput.value = mensaje;
-    document.body.appendChild(tempInput);
-
-    // Seleccionar y copiar el texto
-    tempInput.select();
+function copiarAlPortapapeles() {
+    var texto = document.getElementById("texto");
+    texto.select();
     document.execCommand("copy");
-
-    // Eliminar el campo de texto
-    document.body.removeChild(tempInput);
-
-    // Mostrar un mensaje de éxito
-    alert("Mensaje copiado al portapapeles");
-};
+    alert("Texto copiado al portapapeles: " + texto.value);
+}
 
 
 
