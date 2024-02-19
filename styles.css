@@ -257,15 +257,9 @@ body::before {
     padding-left: 30px;
   }
   
-  /* Update dropdown arrow color */
-  .dropdown-toggle::after {
-    border-top-color: #495057; /* color de la flecha del dropdown */
-  }
 
-  .btn:hover{
-    background-color: #3b0c87;
 
-  }
+
   
   .dropdown-menu a {
     position: relative;
@@ -465,6 +459,14 @@ input[type="number"]:focus {
 
 }
 
+.btn-generar:hover {
+  background-color: #12c23e; /* Cambiar el color al pasar el mouse */
+}
+
+.btn-generar:active {
+  transform: scale(0.95); /* Escalar ligeramente el botón cuando se hace clic */
+} 
+
 .btn-telegram{
 
   display: inline-block;
@@ -488,7 +490,16 @@ input[type="number"]:focus {
   background-color: #229ED9;
   height: 40px;
 
+}
 
+/* Estilo hover para resaltar el botón */
+.btn-telegram:hover {
+  background-color: #0056b3;
+  cursor: pointer;
+}
+
+.btn-telegram:active {
+  transform: scale(0.95); /* Escalar ligeramente el botón cuando se hace clic */
 }
 
 
@@ -545,6 +556,10 @@ input[type="number"] {
   min-width: 250px;
 }
 
+*{
+  border: red solid 1px;
+}
+
 
 .dropdown-toggle {
   min-width: 250px; /* Establece el ancho mínimo deseado */
@@ -582,7 +597,7 @@ order: 0;
 
 
 .bordered-box {
-  margin: 10px 0px;
+  margin: 4px;
 }
 
 

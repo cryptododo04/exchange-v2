@@ -55,10 +55,10 @@ function copiarAlPortapapeles(paisOrigen, paisDestino, cantidadOrigen, cantidadD
     let texto = document.getElementById("texto");
 
     if (paisOrigen === 'SELECCIONE ORIGEN' || paisDestino ==='SELECCIONE DESTINO') {
-        alert("ERROR, Seleccione pais de origen y de destino");
+        alert("ERROR: Seleccione pais de origen y de destino");
     } else {
         
-        texto.value = `Hola, quisiera cambiar ${cantidadOrigen} de ${paisOrigen} a ${cantidadDestino} de ${paisDestino}`;
+        texto.value = `Hola, me gustaria intercambiar ${cantidadOrigen} de ${paisOrigen} a ${cantidadDestino} de ${paisDestino}`;
         
         // Restablecer la imagen y el país de origen antes de copiar al portapapeles
         document.querySelector(".origen-imagen img").src = 'images/earth.png';
@@ -70,7 +70,7 @@ function copiarAlPortapapeles(paisOrigen, paisDestino, cantidadOrigen, cantidadD
 
         texto.select();
         document.execCommand("copy");
-        alert("Texto copiado al portapapeles: " + texto.value);
+        alert("Genial! Ahora continua con el PASO 2: apreta el boton Telegram Chat y pega la solicitud de intercambio");
     }
 
 
@@ -86,6 +86,7 @@ document.getElementById("cantidad-destino").value = parseFloat(0).toFixed(2);
     document.getElementById("currencyLabelOrigen").innerText = 'Tu envias';
     document.getElementById("currencyLabelDestino").innerText = 'Tu recibes';
 }
+
 
 //LINK Y BOTON PARA ABRIR TELEGRAM
 
@@ -312,7 +313,6 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             
             resultado = cantidadOrigen / precioArsUsdtCol;
 
-            console.log(resultado * porcentajeComision)
 
             resultado = resultado - resultado * porcentajeComision;
 
@@ -435,9 +435,6 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
             resultado = cantidadOrigen / precioCopUsdt;
 
-            console.log(cantidadOrigen / precioCopUsdt);
-
-            console.log(resultado * porcentajeComision);
 
             resultado = resultado - resultado * porcentajeComision;
 
@@ -455,10 +452,6 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             
             resultado = cantidadOrigen / precioCrcUsdt;
 
-            console.log(cantidadOrigen / precioCrcUsdt);
-
-            console.log(resultado * porcentajeComision);
-
             resultado = resultado - resultado * porcentajeComision;
 
     
@@ -471,10 +464,6 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
             resultado = cantidadOrigen / precioCrcUsdt;
 
-            console.log(cantidadOrigen / precioCrcUsdt);
-
-            console.log(resultado * porcentajeComision);
-
             resultado = resultado - resultado * porcentajeComision;
 
             return resultado.toFixed(2);
@@ -486,9 +475,6 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
             resultado = cantidadOrigen / precioUsdEcuUsdt;
 
-            console.log(cantidadOrigen / precioCopUsdt);
-
-            console.log(resultado * porcentajeComision);
 
             resultado = resultado - resultado * porcentajeComision;
 
@@ -532,13 +518,9 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             
             resultado = cantidadOrigen - (cantidadOrigen * porcentajeComision);
 
-            console.log("resultado de EURO: " + resultado);
-
-            
 
             resultado = resultado * precioEuroVes;
 
-            console.log("resultado de EURO A ARS: " + resultado);
 
             return resultado;
 
@@ -546,34 +528,25 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
         else if (paisDestino === 'COLOMBIA (COP)'){
             resultado = cantidadOrigen - (cantidadOrigen * porcentajeComision);
-
-            console.log("resultado de EURO: " + resultado);
-
             
-
             resultado = resultado * precioEuroCop;
 
-            console.log("resultado de EURO A ARS: " + resultado);
 
             return resultado;
         }
         else if (paisDestino === 'PAYPAL (USD)'){
             resultado = cantidadOrigen - (cantidadOrigen * porcentajeComisionPaypal);
 
-            console.log("resultado de EURO-PAYPAL: " + resultado);
-
             
 
             resultado = resultado * PrecioUsdtPaypal;
-
-            console.log("resultado de EURO A PAYPAL ES: " + resultado);
 
             return resultado.toFixed(2);
         }
 
         else if (paisDestino === 'USDT (USDT)'){
             resultado = cantidadOrigen - (cantidadOrigen * porcentajeComision);
-
+            resultado = cantidadOrigen - (cantidadOrigen * porcentajeComision);
             return resultado;
         }
     }
@@ -590,13 +563,10 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
         const cantidadConComisionPorcentaje = cantidadOrigen - (cantidadOrigen * comisionPorcentajeDecimal);
         const cantidadConComisionTotal = cantidadConComisionPorcentaje - comisionPayPalFija;
 
-        console.log(cantidadConComisionTotal + 'esto es el numero con el descuento de paypal')
-        
+  
         resultado = cantidadConComisionTotal * takenos;
 
-        console.log(resultado + 'esto es el numero con el descuento de takenos');
 
-        console.log(resultado * porcentajeComision);
 
         resultado = resultado - resultado * porcentajeComisionPaypal;
 
@@ -615,13 +585,9 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
         const cantidadConComisionPorcentaje = cantidadOrigen - (cantidadOrigen * comisionPorcentajeDecimal);
         const cantidadConComisionTotal = cantidadConComisionPorcentaje - comisionPayPalFija;
 
-        console.log(cantidadConComisionTotal + 'esto es el numero con el descuento de paypal')
-        
+ 
         resultado = cantidadConComisionTotal * takenos;
 
-        console.log(resultado + 'esto es el numero con el descuento de takenos');
-
-        console.log(resultado * porcentajeComision);
 
         resultado = resultado - resultado * porcentajeComisionPaypal;
 
@@ -638,45 +604,31 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
         {
 
 
-            
-            console.log("cantidad de origen: " + cantidadOrigen);
             //pasaje de MXN a USDT
             resultado = cantidadOrigen / precioMxnUsdt;
 
-            console.log("cantidadOrigen / 18,5: " + resultado);
 
             comisionNuestra = resultado * porcentajeComision;
             
-            console.log("resultado / 0.16: " + resultado);
 
             resultado = resultado - comisionNuestra;
 
-            console.log(" comisionNuestra = resultado * 0.16: " + resultado)
 
             resultado = resultado * precioMxnArs;
-
-            console.log("resultado * precioMxnArs: " + resultado)
 
             return resultado.toFixed(2);
         }
         else if(paisDestino === 'COLOMBIA (COP)')
         {
-            console.log("cantidad de origen: " + cantidadOrigen);
+
             //pasaje de MXN a USDT
             resultado = cantidadOrigen / precioMxnUsdt;
 
-            console.log("cantidadOrigen / 18,5: " + resultado);
+            resultado = resultado - (resultado * porcentajeComision);
 
-
-            resultado = resultado - (resultado * porcentajeComision)
-            console.log("resultado / 0.16: " + resultado);
-
-
-            console.log(" comisionNuestra = resultado * 0.16: " + resultado)
 
             resultado = resultado * precioMxnCop;
 
-            console.log("resultado * precioMxnCop: " + resultado)
 
             return resultado.toFixed(2);
         }
@@ -685,18 +637,13 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
                         //pasaje de MXN a USDT
                         resultado = cantidadOrigen / precioMxnUsdt;
 
-                        console.log("cantidadOrigen / 18,5: " + resultado);
             
             
                         resultado = resultado - (resultado * porcentajeComision)
-                        console.log("resultado / 0.16: " + resultado);
             
             
-                        console.log(" comisionNuestra = resultado * 0.16: " + resultado)
             
                         resultado = resultado * precioMxnVes;
-            
-                        console.log("resultado * precioMxnCop: " + resultado)
             
                         return resultado.toFixed(2);
         }
@@ -705,12 +652,9 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
         {
                         //pasaje de MXN a USDT
                         resultado = cantidadOrigen / precioMxnUsdt;
-
-                        console.log("cantidadOrigen / 18,5: " + resultado);
             
             
-                        resultado = resultado - (resultado * porcentajeComision)
-                        console.log("resultado / 0.16: " + resultado);
+                        resultado = resultado - (resultado * porcentajeComision);
 
                         return resultado;
         }
@@ -800,9 +744,6 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
             resultado = cantidadOrigen / precioSolUsdt;
 
-            console.log(cantidadOrigen / precioCopUsdt);
-
-            console.log(resultado * porcentajeComision);
 
             resultado = resultado - resultado * porcentajeComision;
 
@@ -815,9 +756,6 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
         else if (paisDestino === 'USDT (USDT)'){
             resultado = cantidadOrigen / precioSolUsdt;
 
-            console.log(cantidadOrigen / precioCopUsdt);
-
-            console.log(resultado * porcentajeComision);
 
             resultado = resultado - resultado * porcentajeComision;
             
@@ -831,9 +769,6 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
             resultado = cantidadOrigen / precioPopUsdt;
 
-            console.log(cantidadOrigen / precioPopUsdt);
-
-            console.log(resultado * porcentajeComision);
 
             resultado = resultado - resultado * porcentajeComision;
 
@@ -847,9 +782,6 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
             resultado = cantidadOrigen / precioPopUsdt;
 
-            console.log(cantidadOrigen / precioPopUsdt);
-
-            console.log(resultado * porcentajeComision);
 
             resultado = resultado - resultado * porcentajeComision;
 
@@ -862,9 +794,6 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             
             resultado = cantidadOrigen / precioVesUsdt;
 
-            console.log(cantidadOrigen / precioVesUsdt);
-    
-            console.log(resultado * porcentajeComision);
     
             resultado = resultado - resultado * porcentajeComision;
     
@@ -878,9 +807,6 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
             resultado = cantidadOrigen / precioVesUsdt;
 
-            console.log(cantidadOrigen / precioVesUsdt);
-    
-            console.log(resultado * porcentajeComision);
     
             resultado = resultado - resultado * porcentajeComision;
     
@@ -926,7 +852,6 @@ document.getElementById('cantidad-origen').addEventListener('input', function() 
 
     console.log(typeof(cantidadDestino));
     
-    console.log(cantidadDestino);
 
 
 
