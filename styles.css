@@ -131,6 +131,12 @@ body::before {
     align-items: center;
 }
 
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /*------------css de la tarjeta principal-------------*/
 .mat-card {
     background-color: rgba(209, 209, 209, 1);
