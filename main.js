@@ -86,12 +86,12 @@ function copiarAlPortapapeles(paisOrigen, paisDestino, cantidadOrigen, cantidadD
     document.getElementById("currencyLabelDestino").innerText = 'Tu recibes';
 }
 
-document.getElementById('telegramLink').addEventListener('click', function(event) {
-    event.preventDefault();
+//LINK Y BOTON PARA ABRIR TELEGRAM
 
-    // Abrir el enlace en una nueva ventana
-    window.open(this.href, '_blank');
-});
+
+document.getElementById('telegramButton').addEventListener('click', function() {
+    window.location.href = 'tg://resolve?domain=cambiosvip&text=Hola%2C%20aqu%C3%AD%20tienes%20la%20informaci%C3%B3n%20que%20viste%20en%20la%20p%C3%A1gina%20anterior';
+  });
 
 
 //LOGICA DE FUNCION DE SELECCION DE PAISES DE ORIGEN Y DESTINO

@@ -91,7 +91,7 @@ body::before {
 
 /*----------Efecto de fade in de la tarjeta------------*/
 .card-container{
-    margin-top: 40px;
+    margin-top: 15px;
     opacity: 0;
     animation: fadeIn 2s forwards;
 
@@ -528,10 +528,6 @@ order: 0;
 
 
 
-.btn{
-  margin-bottom: 15px;
-} 
-
 .bordered-box {
   margin: 10px 0px;
 }
@@ -566,7 +562,17 @@ order: 0;
 }
 
 .mensaje-oculto{
+  display: none;
 }
 
+.intercambio-container{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
 
+*{
+  border: red 1px solid;
+}
 

@@ -362,13 +362,21 @@
               </div>
             </div>
 
+            <div class="bordered-box">
+              <label id="intercambio" class="corner-label">Intercambio</label>
 
+              <div class="intercambio-container">
 
-            <a id="telegramLink" href="tg://resolve?domain=cambiosvip&text=Hola%2C%20aqu%C3%AD%20tienes%20la%20informaci%C3%B3n%20que%20viste%20en%20la%20p%C3%A1gina%20anterior" target="_blank">Abrir chat de Telegram con la persona</a>
-            <button onclick="seleccionarPaisesYCopiar()">Copiar al portapapeles</button>
-            <textarea class="mensaje-oculto" id="texto" readonly>Mensaje predefinido para copiar</textarea>
-            <br>
-            <!-- Botón para copiar al portapapeles -->
+                <label for="paso1">PASO 1: Generar solicitud de intercambio</label>
+                <button id="paso1" onclick="seleccionarPaisesYCopiar()">Copiar al portapapeles</button>
+                
+                <label for="telegramButton">Abrir chat de Telegram con la persona</label>
+                <button id="telegramButton">Abrir chat</button>
+                
+                <textarea class="mensaje-oculto" id="texto" readonly>Mensaje predefinido para copiar</textarea>
+                </div>
+            </div>
+
 
 
         
