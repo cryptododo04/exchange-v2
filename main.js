@@ -80,8 +80,9 @@ function copiarAlPortapapeles(paisOrigen, paisDestino, cantidadOrigen, cantidadD
     document.querySelector(".destino-imagen img").src = 'images/' + imageNameDestino;
 
     // Restablecer los valores de los inputs de números y los labels
-    document.getElementById("cantidad-origen").value = 0.00;
-    document.getElementById("cantidad-destino").value = 0.00;
+
+    document.getElementById("cantidad-origen").value = parseFloat(0).toFixed(2);
+document.getElementById("cantidad-destino").value = parseFloat(0).toFixed(2);
     document.getElementById("currencyLabelOrigen").innerText = 'Tu envias';
     document.getElementById("currencyLabelDestino").innerText = 'Tu recibes';
 }

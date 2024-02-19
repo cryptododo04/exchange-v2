@@ -156,7 +156,7 @@ body::before {
   .output-group {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
   }
   
   .input-group input,
@@ -273,7 +273,7 @@ body::before {
     padding: 0.5rem;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
   }
   
   .dropdown-menu a:hover::before {
@@ -317,7 +317,7 @@ body::before {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 7px;
 
   }
 
@@ -439,6 +439,59 @@ input[type="number"]:focus {
   margin-top: 10px;
 }
 
+.btn-generar{
+
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  border-radius: 500px;
+  transition-property: background-color,border-color,color,box-shadow,filter;
+  transition-duration: .3s;
+  border: 1px solid transparent;
+  letter-spacing: 1px;
+  width: 305px;
+  text-transform: uppercase;
+  white-space: normal;
+  font-weight: 700;
+  text-align: center;
+  padding: 10px 0px;
+  padding-left: 15px;
+  color: #fff;
+  background-color: #3f8a52;
+  height: 40px;
+
+
+}
+
+.btn-telegram{
+
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  border-radius: 500px;
+  transition-property: background-color,border-color,color,box-shadow,filter;
+  transition-duration: .3s;
+  border: 1px solid transparent;
+  letter-spacing: 1px;
+  width: 305px;
+  text-transform: uppercase;
+  white-space: normal;
+  font-weight: 700;
+  text-align: center;
+  padding: 10px 0px;
+  padding-left: 15px;
+  color: #fff;
+  background-color: #229ED9;
+  height: 40px;
+
+
+}
+
+
 /*REGLAS PARA ARREGLAR IOS */
 body {
   padding-top: constant(safe-area-inset-top);
@@ -482,7 +535,7 @@ input[type="number"] {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 10px;
+      gap: 5px;
     }
 
     .input-group>.form-control,
@@ -523,7 +576,7 @@ order: 0;
 .input-group{
   order: 2;
   display: flex;
-  gap: 15px;
+  gap: 7px;
 }
 
 
@@ -570,6 +623,8 @@ order: 0;
   margin-top: 10px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
 }
 
