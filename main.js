@@ -247,6 +247,9 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
     //DECLARACION DE VARIABLE DE PRECIO DE COP A USDT A ARS(COP A USDT A ARS --COLOMBIA-USDT-ARGENTINA--) 
     let PrecioUsdtCop = 3770;
 
+    //DECLARACION DE VARIABLE DE PRECIO DE COP A USDT A ARS(COP A USDT A ARS --COLOMBIA-USDT-ARGENTINA--) 
+    let PrecioUsdtVes = 36;
+
     //DECLARACION DE VARIABLE DE MXN A ARS
     let precioMxnArs = 1000;
 
@@ -262,6 +265,9 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
     //DECLARACION DE VARIABLE DE USD (ECUADOR) a USDT (USD A USDT -----ECUADOR-USDT--------------)
     let precioUsdEcuUsdt = 1.04;
+
+    //DECLARACION DE VARIABLE DE USD (ECUADOR) a USDT (USD A USDT A COP --ECUADOR-USDT-COLOMBIA------)
+    let precioEcuUsdtCop = 3760;
 
        //DECLARACION DE VARIABLE DE USD (ECUADOR) a USDT (USD A ARS -----ECUADOR-ARGENTINA--------------)
     let precioUsdEcuArs = 1000;
@@ -303,7 +309,7 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
     let precioUsaUsdtArs = 1000;
 
     //DECLARACION DE VARIABLE DE VES A USDT(BOLIVARES A USDT --------VENEZUELA-USDT----------)
-    let precioVesUsdt = 35.5;
+    let precioVesUsdt = 38.5;
 
 
     //DECLARACION DE VARIABLE DE USDT A ARS OPERACION VENEZUELA (USDT A ARS -VENEZUELA-USDT-ARS---------))
@@ -509,6 +515,22 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
         }
 
+        else if(paisDestino === 'COLOMBIA (COP)'){
+
+
+            resultado = cantidadOrigen / precioUsdEcuUsdt;
+
+
+            resultado = resultado - resultado * porcentajeComision;
+
+            comisionDiv.innerText = `Comision: 16%`;
+
+    
+            resultado = resultado * precioEcuUsdtCop;
+    
+            return resultado.toFixed(2);
+        }
+
         else if(paisDestino === 'USDT (USDT)'){
             resultado = cantidadOrigen / precioUsdEcuUsdt;
 
@@ -519,10 +541,25 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
     
             return resultado.toFixed(2);
         }
+
+        else if (paisDestino === 'VENEZUELA (VES)'){
+
+            resultado = cantidadOrigen / precioUsdEcuUsdt;
+
+
+            resultado = resultado - resultado * porcentajeComision;
+
+            comisionDiv.innerText = `Comision: 16%`;
+
+    
+            resultado = resultado * PrecioUsdtVes;
+    
+            return resultado.toFixed(2);
+        }
     }
     else if (paisOrigen === 'ESPAÑA (EUR)'){
 
-        if      (paisDestino === 'ARGENTINA (ARS)'){
+        if(paisDestino === 'ARGENTINA (ARS)'){
 
             resultado = cantidadOrigen - (cantidadOrigen * porcentajeComision);
 
