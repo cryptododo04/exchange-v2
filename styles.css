@@ -43,9 +43,6 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-/* FIN DE RESET DE CSS */
-
-/* -------------MAIN----------------*/
 
 body {
     margin: 0;
@@ -67,6 +64,7 @@ body {
     background-repeat: repeat;
 
     animation: scrollBackground 15s linear infinite;
+    
 }
 
 /* Define la animación */

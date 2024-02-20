@@ -116,6 +116,10 @@ function selectCountryDestino(country2) {
 }
 
 
+
+ 
+
+
 function obtenerUrlImagen(countryName) {
     let imageUrls = {
         'Argentina (ARS)': 'images/argentina.png',
@@ -192,11 +196,15 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
     let resultado = 0.00;
     let comisionNuestra = 0.00;
 
+    //DECLARACION DE DIV DE OBJETO QUE MUESTRA COMISION
+    let comisionDiv = document.getElementById("comision");
+
+
     
     //DECLARACION DE VARIABLE DE COMISION DE CASA DE CAMBIO SIN PAYPAL
     let porcentajeComision = 0.16;
     //DECLARACION DE VARIABLE DE COMISION DE CASA DE CAMBIO CON PAYPAL
-    let porcentajeComisionPaypal = 0.20;
+    let porcentajeComisionPaypal = 0.18;
 
     //DECLARACION DE VARIABLE TAKENOS
     let takenos = 0.93605;
@@ -310,6 +318,8 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
     if (paisOrigen === 'ARGENTINA (ARS)') {
 
         if (paisDestino === 'COLOMBIA (COP)') {
+
+            comisionDiv.innerText = `Comision: 16%`;
             
             resultado = cantidadOrigen / precioArsUsdtCol;
 
@@ -332,6 +342,8 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             resultado = resultado - resultado * porcentajeComision;
 
             resultado = resultado * precioVesUsdt;
+            
+            comisionDiv.innerText = `Comision: 16%`;
 
             return resultado.toFixed(2);
 
@@ -339,6 +351,7 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
         else if (paisDestino === 'PAYPAL (USD)') {
         
+            comisionDiv.innerText = "Comision: 18%";
 
             resultado = cantidadOrigen / PrecioUsdtArs;
 
@@ -354,12 +367,11 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             console.log("cantidadOrigen / 18,5: " + resultado);
 
             comisionNuestra = resultado * porcentajeComision;
-            
-            console.log("resultado / 0.16: " + resultado);
+
+            comisionDiv.innerText = `Comision: 16%`;
 
             resultado = resultado - comisionNuestra;
 
-            console.log(" comisionNuestra = resultado * 0.16: " + resultado)
 
 
             return resultado.toFixed(2);
@@ -379,8 +391,10 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             console.log(resultado * porcentajeComision);
     
             resultado = resultado - resultado * porcentajeComision;
-    
-    
+
+
+            comisionDiv.innerText = `Comision: 16%`;
+
             resultado = resultado * precioClpArs;
     
             return resultado.toFixed(2);
@@ -394,6 +408,8 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             console.log(resultado * porcentajeComision);
     
             resultado = resultado - resultado * porcentajeComision;
+            
+            comisionDiv.innerText = `Comision: 16%`;
     
             return resultado.toFixed(2);  
         }
@@ -411,6 +427,8 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
             resultado = resultado - resultado * porcentajeComision;
 
+            comisionDiv.innerText = `Comision: 16%`;
+
     
             resultado = resultado * precioCopArs;
     
@@ -423,11 +441,9 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
             comisionNuestra = resultado * porcentajeComision;
 
+            comisionDiv.innerText = `Comision: 16%`;
+
             resultado = resultado - comisionNuestra
-
-            console.log(comisionNuestra);
-
-            console.log(resultado);
 
             return resultado.toFixed(2);
         }
@@ -440,6 +456,8 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
     
             resultado = resultado * precioCopVes;
+
+            comisionDiv.innerText = `Comision: 16%`;
     
             return resultado.toFixed(2);
 
@@ -454,6 +472,8 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
             resultado = resultado - resultado * porcentajeComision;
 
+            comisionDiv.innerText = `Comision: 16%`;
+
     
             resultado = resultado * precioCrcUsdtArs;
     
@@ -465,6 +485,8 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             resultado = cantidadOrigen / precioCrcUsdt;
 
             resultado = resultado - resultado * porcentajeComision;
+
+            comisionDiv.innerText = `Comision: 16%`;
 
             return resultado.toFixed(2);
         }
@@ -478,6 +500,8 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
             resultado = resultado - resultado * porcentajeComision;
 
+            comisionDiv.innerText = `Comision: 16%`;
+
     
             resultado = resultado * precioUsdEcuArs;
     
@@ -488,9 +512,7 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
         else if(paisDestino === 'USDT (USDT)'){
             resultado = cantidadOrigen / precioUsdEcuUsdt;
 
-            console.log(cantidadOrigen / precioUsdEcuUsdt);
-
-            console.log(resultado * porcentajeComision);
+            comisionDiv.innerText = `Comision: 16%`;
 
             resultado = resultado - resultado * porcentajeComision;
 
@@ -504,13 +526,11 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
             resultado = cantidadOrigen - (cantidadOrigen * porcentajeComision);
 
-            console.log("resultado de EURO: " + resultado);
-
             
 
             resultado = resultado * precioEuroArs;
 
-            console.log("resultado de EURO A ARS: " + resultado);
+            comisionDiv.innerText = `Comision: 16%`;
 
             return resultado.toFixed(2);
         }
@@ -521,8 +541,10 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
             resultado = resultado * precioEuroVes;
 
+            comisionDiv.innerText = `Comision: 16%`;
 
-            return resultado;
+
+            return resultado.toFixed(2);
 
         }
 
@@ -531,13 +553,15 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             
             resultado = resultado * precioEuroCop;
 
+            comisionDiv.innerText = `Comision: 16%`;
 
-            return resultado;
+
+            return resultado.toFixed(2);
         }
         else if (paisDestino === 'PAYPAL (USD)'){
             resultado = cantidadOrigen - (cantidadOrigen * porcentajeComisionPaypal);
 
-            
+            comisionDiv.innerText = `Comision: 18%`
 
             resultado = resultado * PrecioUsdtPaypal;
 
@@ -567,6 +591,7 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
         resultado = cantidadConComisionTotal * takenos;
 
 
+        comisionDiv.innerText = `Comision: 18%`;
 
         resultado = resultado - resultado * porcentajeComisionPaypal;
 
@@ -585,6 +610,7 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
         const cantidadConComisionPorcentaje = cantidadOrigen - (cantidadOrigen * comisionPorcentajeDecimal);
         const cantidadConComisionTotal = cantidadConComisionPorcentaje - comisionPayPalFija;
 
+        comisionDiv.innerText = `Comision: 18%`;
  
         resultado = cantidadConComisionTotal * takenos;
 
@@ -599,6 +625,7 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
     else if (paisOrigen === 'MEXICO (MXN)') {
 
         console.log("estoy aca en mexico de origen")
+        
 
         if(paisDestino === 'ARGENTINA (ARS)')
         {
@@ -613,6 +640,8 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
             resultado = resultado - comisionNuestra;
 
+            comisionDiv.innerText = `Comision: 16%`;
+
 
             resultado = resultado * precioMxnArs;
 
@@ -626,6 +655,8 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
             resultado = resultado - (resultado * porcentajeComision);
 
+
+            comisionDiv.innerText = `Comision: 16%`;
 
             resultado = resultado * precioMxnCop;
 
@@ -644,6 +675,8 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             
             
                         resultado = resultado * precioMxnVes;
+
+                        comisionDiv.innerText = `Comision: 16%`;
             
                         return resultado.toFixed(2);
         }
@@ -655,6 +688,8 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             
             
                         resultado = resultado - (resultado * porcentajeComision);
+
+                        comisionDiv.innerText = `Comision: 16%`;
 
                         return resultado;
         }
@@ -670,8 +705,12 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
         const cantidadConComisionPorcentaje = cantidadOrigen - (cantidadOrigen * comisionPorcentajeDecimal);
         const cantidadConComisionTotal = cantidadConComisionPorcentaje - comisionPayPalFija;
 
+        comisionDiv.innerText = "Comision: 18%";
+
         console.log("estoy en PAYPAL");
         if (paisDestino === 'ARGENTINA (ARS)') {
+
+            comisionDiv.innerText = `Comision: 18%`;
 
             // Cálculo de USDT
             resultado = cantidadConComisionTotal * PrecioUsdtPaypal;
@@ -697,6 +736,8 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             // Pasaje a pesos colombianos y redondeo
             resultado = resultado * PrecioUsdtCop;
 
+            comisionDiv.innerText = `Comision: 18%`;
+
             return resultado.toFixed(0);
 
         } 
@@ -710,6 +751,8 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             comisionNuestra = resultado * porcentajeComisionPaypal;
 
             resultado = resultado - comisionNuestra;
+
+            comisionDiv.innerText = `Comision: 18%`;
             
             // Pasaje a pesos mexicanos y redondeo
             resultado = resultado * precioPaypalMXN;
@@ -722,6 +765,8 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
             // Cálculo de la comisión de nuestro servicio
             comisionNuestra = resultado * porcentajeComisionPaypal;
+
+            comisionDiv.innerText = `Comision: 18%`;
             resultado = resultado - comisionNuestra;
             // Redondeo a 2 decimales
             return resultado.toFixed(2);
@@ -735,12 +780,16 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             resultado = resultado - comisionNuestra;
             // Pasaje a bolívares y redondeo
             resultado = resultado * 35.5;
+
+            
             return resultado.toFixed(0);
         }
     }
     else if (paisOrigen === 'PERU (SOL)'){
 
         if(paisDestino === 'ARGENTINA (ARS)'){
+            
+            comisionDiv.innerText = `Comision: 16%`;
 
             resultado = cantidadOrigen / precioSolUsdt;
 
@@ -756,6 +805,8 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
         else if (paisDestino === 'USDT (USDT)'){
             resultado = cantidadOrigen / precioSolUsdt;
 
+            comisionDiv.innerText = `Comision: 16%`;
+
 
             resultado = resultado - resultado * porcentajeComision;
             
@@ -765,6 +816,8 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
     else if (paisOrigen === 'REPUBLICA DOMINICANA (POP)'){
 
         if(paisDestino === 'ARGENTINA (ARS)'){
+
+            comisionDiv.innerText = `Comision: 16%`;
 
 
             resultado = cantidadOrigen / precioPopUsdt;
@@ -782,6 +835,8 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
             resultado = cantidadOrigen / precioPopUsdt;
 
+            comisionDiv.innerText = `Comision: 16%`;
+
 
             resultado = resultado - resultado * porcentajeComision;
 
@@ -791,6 +846,8 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
     else if(paisOrigen === 'VENEZUELA (VES)'){
         
         if(paisDestino === 'ARGENTINA (ARS)'){
+
+            comisionDiv.innerText = `Comision: 16%`;
             
             resultado = cantidadOrigen / precioVesUsdt;
 
@@ -806,6 +863,8 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
         else if (paisDestino === 'USDT (USDT)'){
 
             resultado = cantidadOrigen / precioVesUsdt;
+
+            comisionDiv.innerText = `Comision: 16%`;
 
     
             resultado = resultado - resultado * porcentajeComision;
