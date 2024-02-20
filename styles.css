@@ -116,9 +116,18 @@ body {
 
 }
 
+.card-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-
-
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 /*------------css de la tarjeta principal-------------*/
 .mat-card {
@@ -586,7 +595,7 @@ order: 0;
 
 
 .bordered-box {
-  margin: 4px;
+  margin: 4px;  
 }
 
 
@@ -598,14 +607,56 @@ order: 0;
 
 }
 
+
+/*-------------MEDIA QUERY PARA SMARTPHONES--------------*/
 @media screen and (max-width: 400px) {
 
-  .form-control,
+/*  .form-control,
 .dropdown-toggle,
 .dropdown-menu {
 
-  padding-left: 18px;
 }
+
+*/
+
+.mat-card{
+  margin-top: 20px;
+}
+.bordered-box {
+  max-width: 280px;
+}
+
+
+
+
+#cantidad-origen{
+
+  height: 35px;
+}
+
+#countryDropdownOrigen{
+  height: 35px;
+}
+
+#cantidad-destino{
+  height: 35px;
+}
+#countryDropdownDestino{
+  height: 35px;
+}
+
+.btn-generar{
+  width: 250px;
+  height: 35px;
+}
+
+.btn-telegram{
+
+  width: 250px;
+  height: 35px;
+
+}
+
 }
 
 .dropdown-header{
