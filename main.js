@@ -206,6 +206,8 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
     //DECLARACION DE VARIABLE DE COMISION DE CASA DE CAMBIO CON PAYPAL
     let porcentajeComisionPaypal = 0.18;
 
+    let porcentajeComisionUsa = 0.20;
+
     //DECLARACION DE VARIABLE TAKENOS
     let takenos = 0.93605;
 
@@ -307,6 +309,13 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
     //DECLARACION DE VARIABLE DE PRECIO DE USA A USDT A ARS(USA A ARGENTINA -----USA-ARGENTINA-----)
     let precioUsaUsdtArs = 1000;
+
+    //DECLARACION DE VARIABLE DE PRECIO DE USA A USDT A ARS(USA A ARGENTINA -----USA-ARGENTINA-----)
+    let precioUsaUsdtCop = 3760;
+
+
+    //DECLARACION DE VARIABLE DE PRECIO DE USA A USDT A ARS(USA A ARGENTINA -----USA-ARGENTINA-----)
+    let precioUsaUsdtVes = 35.5;
 
     //DECLARACION DE VARIABLE DE VES A USDT(BOLIVARES A USDT --------VENEZUELA-USDT----------)
     let precioVesUsdt = 38.5;
@@ -563,6 +572,8 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
             resultado = cantidadOrigen - (cantidadOrigen * porcentajeComision);
 
+            resultado = resultado - 0.5;
+
             
 
             resultado = resultado * precioEuroArs;
@@ -574,6 +585,8 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
         else if (paisDestino === 'VENEZUELA (VES)'){
             
             resultado = cantidadOrigen - (cantidadOrigen * porcentajeComision);
+
+            resultado = resultado - 0.5;
 
 
             resultado = resultado * precioEuroVes;
@@ -587,6 +600,8 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
         else if (paisDestino === 'COLOMBIA (COP)'){
             resultado = cantidadOrigen - (cantidadOrigen * porcentajeComision);
+
+            resultado = resultado - 0.5;
             
             resultado = resultado * precioEuroCop;
 
@@ -598,6 +613,8 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
         else if (paisDestino === 'PAYPAL (USD)'){
             resultado = cantidadOrigen - (cantidadOrigen * porcentajeComisionPaypal);
 
+            resultado = resultado - 0.5;
+
             comisionDiv.innerText = `Comision: 18%`
 
             resultado = resultado * PrecioUsdtPaypal;
@@ -607,7 +624,9 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
         else if (paisDestino === 'USDT (USDT)'){
             resultado = cantidadOrigen - (cantidadOrigen * porcentajeComision);
-            resultado = cantidadOrigen - (cantidadOrigen * porcentajeComision);
+
+            resultado = resultado - 0.5;
+
             return resultado;
         }
     }
@@ -628,14 +647,35 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
         resultado = cantidadConComisionTotal * takenos;
 
 
-        comisionDiv.innerText = `Comision: 18%`;
+        comisionDiv.innerText = `Comision: 20%`;
 
-        resultado = resultado - resultado * porcentajeComisionPaypal;
+        resultado = resultado - resultado * porcentajeComisionUsa;
 
         resultado = resultado * precioUsaUsdtArs;
 
-        return resultado.toFixed(2);
+        return resultado.toFixed(1);
 
+        }
+        else if(paisDestino === 'COLOMBIA (COP)'){
+                    //DECLARACION DE VARIABLES DE COMISIONES DE PAYPAL DE LA FUNCION CALCULAR
+        const comisionPaypalPorcentaje = 5.4;
+        const comisionPayPalFija = 0.30; // Comisión fija de PayPal
+        const comisionPorcentajeDecimal = comisionPaypalPorcentaje / 100; // Convertir el porcentaje a decimal
+        // Cálculo de la comisión de PayPal
+        const cantidadConComisionPorcentaje = cantidadOrigen - (cantidadOrigen * comisionPorcentajeDecimal);
+        const cantidadConComisionTotal = cantidadConComisionPorcentaje - comisionPayPalFija;
+
+  
+        resultado = cantidadConComisionTotal * takenos;
+
+
+        comisionDiv.innerText = `Comision: 20%`;
+
+        resultado = resultado - resultado * porcentajeComisionUsa;
+
+        resultado = resultado * precioUsaUsdtCop;
+
+        return resultado.toFixed(2);
         }
 
         else if(paisDestino === 'USDT (USDT)'){
@@ -647,16 +687,41 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
         const cantidadConComisionPorcentaje = cantidadOrigen - (cantidadOrigen * comisionPorcentajeDecimal);
         const cantidadConComisionTotal = cantidadConComisionPorcentaje - comisionPayPalFija;
 
-        comisionDiv.innerText = `Comision: 18%`;
+        comisionDiv.innerText = `Comision: 20%`;
  
         resultado = cantidadConComisionTotal * takenos;
 
+        console.log(resultado);
 
-        resultado = resultado - resultado * porcentajeComisionPaypal;
+
+        resultado = resultado - resultado * porcentajeComisionUsa;
+
+        resultado = redondear(resultado,1);
 
         
 
-        return resultado.toFixed(2);
+        return resultado.toFixed(1);
+        }
+        else if(paisDestino === 'VENEZUELA (VES)'){
+        //DECLARACION DE VARIABLES DE COMISIONES DE PAYPAL DE LA FUNCION CALCULAR
+        const comisionPaypalPorcentaje = 5.4;
+        const comisionPayPalFija = 0.30; // Comisión fija de PayPal
+        const comisionPorcentajeDecimal = comisionPaypalPorcentaje / 100; // Convertir el porcentaje a decimal
+        // Cálculo de la comisión de PayPal
+        const cantidadConComisionPorcentaje = cantidadOrigen - (cantidadOrigen * comisionPorcentajeDecimal);
+        const cantidadConComisionTotal = cantidadConComisionPorcentaje - comisionPayPalFija;
+
+  
+        resultado = cantidadConComisionTotal * takenos;
+
+
+        comisionDiv.innerText = `Comision: 20%`;
+
+        resultado = resultado - resultado * porcentajeComisionUsa;
+
+        resultado = resultado * precioUsaUsdtVes;
+
+        return resultado.toFixed(1);   
         }
     }
     else if (paisOrigen === 'MEXICO (MXN)') {
@@ -878,6 +943,20 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             resultado = resultado - resultado * porcentajeComision;
 
             return resultado.toFixed(2);
+        }
+    }
+    else if(paisOrigen === 'USDT (USDT)'){
+
+        if(paisDestino === 'ARGENTINA (ARS)'){
+
+        }
+
+        else if(paisDestino === 'COLOMBIA (COP)'){
+
+        }
+
+        else if(paisDestino === 'VENEZUELA (VES)'){
+            
         }
     }
     else if(paisOrigen === 'VENEZUELA (VES)'){
