@@ -222,7 +222,7 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
         let precioArsUsdtVes = 1250;
 
     //DECLARACION DE VARIABLE DE CLP A USDT  (CLP A USDT ---CHILE-USDT--)
-    let precioClpUsdt = 1020;
+    let precioClpUsdt = 1040;
 
     //DECLARACION DE VARIABLE DE CLP A USDT Y DESPUES A ARS (CLP A ARS ---CHILE-ARGENTINA-----)
     let precioClpArs = 1000;
@@ -285,13 +285,13 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
     let precioEuroCop = 3770;
 
     //DECLARACION DE VARIABLE DE POP A USDT(------REPUBLICA DOM A USDT------POP-USDT )
-    let precioPopUsdt = 62;
+    let precioPopUsdt = 63;
 
     //DECLARACION DE VARIABLE DE POP A USDT A ARS (------REPUBLICA DOM A USDT A ARS----POP-USDT-ARS---)
     let precioPopUsdtArs = 1000;
 
     //DECLARACION DE VARIABLE DE SOL A USDT (SOLES A USDT -----PERU-USDT-----------)
-    let precioSolUsdt = 4.1;
+    let precioSolUsdt = 4;
 
     //DECLARACION DE VARIABLE DE USDT A ARS OPERACION PERU (SOLES A USDT A ARS ----SOL-USDT-ARS------)
     let precioSolArs = 1000;
@@ -318,11 +318,25 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
     let precioUsaUsdtVes = 35.5;
 
     //DECLARACION DE VARIABLE DE VES A USDT(BOLIVARES A USDT --------VENEZUELA-USDT----------)
-    let precioVesUsdt = 38.5;
+    let precioVesUsdt = 39;
 
 
     //DECLARACION DE VARIABLE DE USDT A ARS OPERACION VENEZUELA (USDT A ARS -VENEZUELA-USDT-ARS---------))
     let precioVesUsdtArs = 1000;
+
+    //DECLARACION DE VARIABLE DE USDT PESOS PAGO NUESTRO DE ARS (---------USDT A ARS------------)
+    let precioUsdtArsPago = 1000;
+
+    //DECLARACION DE VARIABLE DE USDT PESOS PAGO NUESTRO DE COP (---------USDT A COP------------)
+    let precioUsdtCopPago = 3760;
+
+    //DECLARACION DE VARIABLE DE USDT PESOS PAGO NUESTRO DE VES (---------USDT A VES------------)
+    let precioUsdtVesPago = 35.5;
+
+    //DECLARACION DE VARIABLE DE USDT PESOS PAGO NUESTRO DE REAL (---------USDT A REAL------------)
+    let precioRealUsdt= 5.05;
+
+    
 
 
 
@@ -393,8 +407,65 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
         }
         // Agrega más casos según sea necesario para Argentina como origen
     } 
-    else if (paisOrigen === 'Brasil (R$)') {
-        // Evaluar casos para Brasil como origen
+    else if (paisOrigen === 'BRASIL (R$)') {
+        
+        if(paisDestino === 'ARGENTINA (ARS)'){
+
+            resultado = cantidadOrigen / precioRealUsdt;
+    
+            resultado = resultado - resultado * porcentajeComision;
+
+
+            comisionDiv.innerText = `Comision: 16%`;
+
+            resultado = resultado * precioUsdtArsPago;
+    
+            return resultado.toFixed(2);
+
+        }
+
+        else if (paisDestino === 'COLOMBIA (COP)'){
+
+            resultado = cantidadOrigen / precioRealUsdt;
+    
+            resultado = resultado - resultado * porcentajeComision;
+
+
+            comisionDiv.innerText = `Comision: 16%`;
+
+            resultado = resultado * precioUsdtCopPago;
+    
+            return resultado.toFixed(2);
+
+        }
+
+        else if(paisDestino === 'USDT (USDT)'){
+
+            resultado = cantidadOrigen / precioRealUsdt;
+    
+            resultado = resultado - resultado * porcentajeComision;
+
+
+            comisionDiv.innerText = `Comision: 16%`;
+    
+            return resultado.toFixed(2);
+
+        }
+
+        else if(paisDestino === 'VENEZUELA (VES)'){
+
+            resultado = cantidadOrigen / precioRealUsdt;
+    
+            resultado = resultado - resultado * porcentajeComision;
+
+
+            comisionDiv.innerText = `Comision: 16%`;
+
+            resultado = resultado * precioUsdtVesPago;
+    
+            return resultado.toFixed(2);
+
+        }
     }
     else if(paisOrigen === 'CHILE (CLP)'){
         
@@ -415,6 +486,21 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             return resultado.toFixed(2);
         }
 
+        else if (paisDestino === 'COLOMBIA (COP)'){
+
+            comisionDiv.innerText = `Comision: 16%`;
+            
+            resultado = cantidadOrigen / precioClpUsdt;
+
+
+            resultado = resultado - resultado * porcentajeComision;
+
+            resultado = resultado * PrecioUsdtCop;
+
+            return resultado.toFixed(2);
+
+        }
+
         else if (paisDestino === 'USDT (USDT)'){
             resultado = cantidadOrigen / precioClpUsdt;
 
@@ -427,6 +513,21 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             comisionDiv.innerText = `Comision: 16%`;
     
             return resultado.toFixed(2);  
+        }
+
+        else if (paisDestino === 'VENEZUELA (VES)'){
+
+            comisionDiv.innerText = `Comision: 16%`;
+            
+            resultado = cantidadOrigen / precioClpUsdt;
+
+
+            resultado = resultado - resultado * porcentajeComision;
+
+            resultado = resultado * precioUsdtVesPago;
+
+            return resultado.toFixed(2);
+
         }
  
     }
@@ -495,6 +596,21 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             return resultado.toFixed(2);
 
         }
+
+        else if(paisDestino === 'COLOMBIA (COP)'){
+
+            resultado = cantidadOrigen / precioCrcUsdt;
+
+            resultado = resultado - resultado * porcentajeComision;
+
+            comisionDiv.innerText = `Comision: 16%`;
+
+    
+            resultado = resultado * precioUsdtCopPago;
+    
+            return resultado.toFixed(2);
+        }
+
         else if(paisDestino === 'USDT (USDT)'){
 
             resultado = cantidadOrigen / precioCrcUsdt;
@@ -504,6 +620,21 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             comisionDiv.innerText = `Comision: 16%`;
 
             return resultado.toFixed(2);
+        }
+
+        else if (paisDestino === 'VENEZUELA (VES)'){
+
+            resultado = cantidadOrigen / precioCrcUsdt;
+
+            resultado = resultado - resultado * porcentajeComision;
+
+            comisionDiv.innerText = `Comision: 16%`;
+
+    
+            resultado = resultado * precioUsdtVesPago;
+    
+            return resultado.toFixed(2);
+
         }
     }
     else if (paisOrigen === 'ECUADOR (USD)'){
@@ -904,6 +1035,22 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             return resultado.toFixed(2);
 
         }
+
+        else if (paisDestino === 'COLOMBIA (COP)'){
+
+            comisionDiv.innerText = `Comision: 16%`;
+
+            resultado = cantidadOrigen / precioSolUsdt;
+
+
+            resultado = resultado - resultado * porcentajeComision;
+
+    
+            resultado = resultado * precioUsdtCopPago;
+    
+            return resultado.toFixed(2);
+
+        }
         else if (paisDestino === 'USDT (USDT)'){
             resultado = cantidadOrigen / precioSolUsdt;
 
@@ -913,6 +1060,22 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             resultado = resultado - resultado * porcentajeComision;
             
             return resultado.toFixed(2);
+        }
+
+        else if(paisDestino === 'VENEZUELA (VES)'){
+            
+            comisionDiv.innerText = `Comision: 16%`;
+
+            resultado = cantidadOrigen / precioSolUsdt;
+
+
+            resultado = resultado - resultado * porcentajeComision;
+
+    
+            resultado = resultado * precioUsdtVesPago;
+    
+            return resultado.toFixed(2);
+
         }
     }
     else if (paisOrigen === 'REPUBLICA DOMINICANA (POP)'){
@@ -933,6 +1096,23 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             return resultado.toFixed(2);
 
         }
+
+        else if (paisDestino === 'COLOMBIA (COP)'){
+
+            comisionDiv.innerText = `Comision: 16%`;
+
+
+            resultado = cantidadOrigen / precioPopUsdt;
+
+
+            resultado = resultado - resultado * porcentajeComision;
+
+    
+            resultado = resultado * precioUsdtCopPago;
+    
+            return resultado.toFixed(2);
+
+        }
         else if( paisDestino === 'USDT (USDT)'){
 
             resultado = cantidadOrigen / precioPopUsdt;
@@ -944,19 +1124,71 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
             return resultado.toFixed(2);
         }
+
+        else if(paisDestino === 'VENEZUELA (VES)'){
+            
+            comisionDiv.innerText = `Comision: 16%`;
+
+
+            resultado = cantidadOrigen / precioPopUsdt;
+
+
+            resultado = resultado - resultado * porcentajeComision;
+
+    
+            resultado = resultado * precioUsdtVesPago;
+    
+            return resultado.toFixed(2);
+        }
+
     }
     else if(paisOrigen === 'USDT (USDT)'){
 
         if(paisDestino === 'ARGENTINA (ARS)'){
 
+
+
+            comisionDiv.innerText = `Comision: 16%`;
+
+
+            resultado = cantidadOrigen - (cantidadOrigen * porcentajeComision);
+
+            resultado = resultado * precioUsdtArsPago;
+
+            
+    
+            return resultado.toFixed(2);
+
         }
 
         else if(paisDestino === 'COLOMBIA (COP)'){
+
+            comisionDiv.innerText = `Comision: 16%`;
+
+
+            resultado = cantidadOrigen - (cantidadOrigen * porcentajeComision);
+
+            resultado = resultado * precioUsdtCopPago;
+
+            
+    
+            return resultado.toFixed(2);
 
         }
 
         else if(paisDestino === 'VENEZUELA (VES)'){
             
+            comisionDiv.innerText = `Comision: 16%`;
+
+
+            resultado = cantidadOrigen - (cantidadOrigen * porcentajeComision);
+
+            resultado = resultado * precioUsdtVesPago;
+
+            
+    
+            return resultado.toFixed(2);
+
         }
     }
     else if(paisOrigen === 'VENEZUELA (VES)'){
@@ -974,6 +1206,22 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
             resultado = resultado * precioVesUsdtArs;
     
             return resultado.toFixed(2);
+        }
+
+        else if (paisDestino === 'COLOMBIA (COP)'){
+
+            comisionDiv.innerText = `Comision: 16%`;
+            
+            resultado = cantidadOrigen / precioVesUsdt;
+
+    
+            resultado = resultado - resultado * porcentajeComision;
+    
+    
+            resultado = resultado * precioUsdtCopPago;
+    
+            return resultado.toFixed(2);
+
         }
 
         else if (paisDestino === 'USDT (USDT)'){
