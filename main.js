@@ -1049,7 +1049,7 @@ function calcularComision(cantidadOrigen, paisOrigen, paisDestino) {
 
                         comisionDiv.innerText = `Comision: 16%`;
 
-                        return resultado;
+                        return resultado.toFixed(2);
         }
 
     } 
