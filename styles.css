@@ -128,8 +128,8 @@ body {
     border: 1px solid #e5e5e5;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 20px;
+    padding: 10px;
+    margin: 10px;
 
     display: flex;
     flex-direction: column;
@@ -210,6 +210,18 @@ body {
     border-top: 5px solid #555; /* Adjust color as needed */
     pointer-events: none;
   }
+
+  .input-group {
+    flex-direction: column;
+
+  }
+
+  .input-group{
+    order: 2;
+    display: flex;
+    gap: 7px;
+  }
+
 
 
 
@@ -299,11 +311,18 @@ body {
 
 .input-container{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 7px;
 
+  }
+
+  .input-group>.form-control,
+  .input-group>.form-floating,
+  .input-group>.form-select {
+  
+    min-width: 300px;
   }
 
   .origen-imagen {
@@ -328,8 +347,8 @@ body {
     position: relative;
     border: 2px solid black;
     border-radius: 20px;
-    padding: 20px;
-    margin: 20px;
+    padding: 7px 15px;
+    margin: 10px;
   }
 
   .btn{
@@ -353,7 +372,7 @@ body {
     padding-left: 15px;
     color: #fff;
     background-color: #3f8a52;
-    height: 48px;
+    height: 40px;
   
   
   }
@@ -382,7 +401,7 @@ body {
 }
 
 input[type="number"]{
-  height: 48px;
+  height: 40px;
   border-radius: 500px;
 }
 
@@ -399,6 +418,11 @@ input[type="number"]{
   font-size: 20px;
   padding: 0px 12px 5px 10px;
   white-space: nowrap;
+}
+
+.corner-label{
+  left: 50%; /* Centra el label horizontalmente */
+  transform: translateX(-50%);
 }
 
 input[type="number"] {
@@ -424,6 +448,13 @@ input[type="number"]:focus {
   margin-top: 10px;
 }
 
+.intercambio-label{
+  display: flex;
+  justify-content: flex-start;
+}
+
+
+
 .btn-generar{
 
   display: inline-block;
@@ -441,7 +472,6 @@ input[type="number"]:focus {
   white-space: normal;
   font-weight: 700;
   text-align: center;
-  padding: 10px 0px;
   padding-left: 15px;
   color: #fff;
   background-color: #3f8a52;
@@ -475,7 +505,6 @@ input[type="number"]:focus {
   white-space: normal;
   font-weight: 700;
   text-align: center;
-  padding: 10px 0px;
   padding-left: 15px;
   color: #fff;
   background-color: #229ED9;
@@ -557,7 +586,7 @@ input[type="number"] {
 .mat-card {
 
   padding: 10px;
-  margin: 0px;
+  margin: 10px;
   
 }
 
