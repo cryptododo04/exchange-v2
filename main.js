@@ -2940,18 +2940,14 @@ let cantidadOrigen = document.getElementById('cantidad-origen').addEventListener
         return 0;
     }
 
-    alert("1- tipo de dato antes de calcular " + typeof(cantidadDestino));
-
+    alert("antes: "+cantidadDestino);
     cantidadDestino = calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino);
+    alert("despues: "+cantidadDestino);
 
-    alert("2- tipo de dato despues de calcular " + typeof(cantidadDestino));
-    console.log("3- valor en string " + cantidadDestino);
 
     cantidadDestino = parseFloat(cantidadDestino);
     
 
-    alert("3-tipo despues de parsear " + typeof(cantidadDestino));
-    alert("4- valor en numero" + cantidadDestino);
 
     if (typeof cantidadDestino === 'number') {
         if(paisOrigen === 'PAYPAL (USD)' && paisDestino === 'USDT (USDT)') {
