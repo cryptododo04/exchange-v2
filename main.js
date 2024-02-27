@@ -2957,11 +2957,11 @@ let cantidadOrigen = document.getElementById('cantidad-origen').addEventListener
     alert("cantidad destino despues de guardarle calcularcomisionorigen "+cantidadDestino);
 
 
-    alert("cantidad origen despues de parsear cantidad destino: "+cantidadOrigen);
+    alert("cantidad destino antes de parsear cantidad destino: "+cantidadOrigen);
 
     cantidadDestino = parseFloat(cantidadDestino);
     
-    alert("cantidad origen despues de parsear cantidad destino: "+cantidadOrigen);
+    alert("cantidad despues despues de parsear cantidad destino: "+cantidadOrigen);
 
 
     if (typeof cantidadDestino === 'number') {
