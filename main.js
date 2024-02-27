@@ -2951,7 +2951,7 @@ let cantidadOrigen = document.getElementById('cantidad-origen').addEventListener
     
 
     alert("3-tipo despues de parsear " + typeof(cantidadDestino));
-    alert("4- valor en numero" + cantidadDestino);
+    alert("4- nuevo valor en numero" + cantidadDestino);
 
     if (typeof cantidadDestino === 'number') {
         if(paisOrigen === 'PAYPAL (USD)' && paisDestino === 'USDT (USDT)') {
