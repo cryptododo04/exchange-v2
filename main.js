@@ -2928,7 +2928,10 @@ const inputCantidadOrigen = document.getElementById('cantidad-origen');
 //event listener de cuando se modifica el input de origen
 let cantidadOrigen = document.getElementById('cantidad-origen').addEventListener('input', function() {
     let cantidad = this.value.replace(",", ".");
+    console.log(cantidadOrigen);
     cantidadOrigen = parseFloat(cantidad);
+    console.log(cantidadOrigen);
+    console.log(typeof(cantidadOrigen));
 
     let paisOrigen = document.getElementById('countryDropdownOrigen').innerText.trim();
     let paisDestino = document.getElementById('countryDropdownDestino').innerText.trim();
@@ -2939,7 +2942,9 @@ let cantidadOrigen = document.getElementById('cantidad-origen').addEventListener
     }
 
     cantidadDestino = calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino);
-
+    cantidadDestino = parseFloat(cantidadDestino);
+    console.log(typeof(cantidadDestino));
+    console.log(cantidadDestino);
     if (typeof cantidadDestino === 'number') {
         if(paisOrigen === 'PAYPAL (USD)' && paisDestino === 'USDT (USDT)') {
             inputCantidadDestino.value = cantidadDestino.toFixed(2);
