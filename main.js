@@ -2962,6 +2962,7 @@ let cantidadOrigen = document.getElementById('cantidad-origen').addEventListener
     } else {
         // Manejo del caso en el que calcularComision no devuelve un número
         console.log('calcularComision no devolvió un número');
+        alert('calcularComision no devolvió un número');
     }
 });
     cantidadOrigen = document.getElementById('cantidad-origen').addEventListener('keyup', function() {
