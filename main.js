@@ -2926,44 +2926,32 @@ const inputCantidadOrigen = document.getElementById('cantidad-origen');
 
 
 //event listener de cuando se modifica el input de origen
-    let cantidadOrigen = document.getElementById('cantidad-origen').addEventListener('input', function() {
-        cantidadOrigen = cantidadOrigen.replace(",",".")
-        cantidadOrigen = parseFloat(this.value);
-
+let cantidadOrigen = document.getElementById('cantidad-origen').addEventListener('input', function() {
+    let cantidad = this.value.replace(",", ".");
+    cantidadOrigen = parseFloat(cantidad);
 
     let paisOrigen = document.getElementById('countryDropdownOrigen').innerText.trim();
-    console.log(paisOrigen);
     let paisDestino = document.getElementById('countryDropdownDestino').innerText.trim();
-    console.log(paisDestino);
 
     if(paisOrigen.includes('SELECCIONE ORIGEN') || paisDestino.includes('SELECCIONE DESTINO')){
-        console.log("ingresar opciones validas");
+        console.log("Ingresar opciones válidas");
         return 0;
     }
 
     cantidadDestino = calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino);
 
-    console.log(typeof(cantidadDestino));
-    console.log(cantidadDestino);
-
-    cantidadDestino = parseFloat(cantidadDestino);
-
-    console.log(typeof(cantidadDestino));
-    
-
-
-
     if (typeof cantidadDestino === 'number') {
-
-        if(paisOrigen === 'PAYPAL (USD)' && paisDestino === 'USDT (USDT)')
-        inputCantidadDestino.value = cantidadDestino.toFixed(2);
-        else
-        inputCantidadDestino.value = cantidadDestino;
+        if(paisOrigen === 'PAYPAL (USD)' && paisDestino === 'USDT (USDT)') {
+            inputCantidadDestino.value = cantidadDestino.toFixed(2);
+        } else {
+            inputCantidadDestino.value = cantidadDestino;
+        }
     } else {
         // Manejo del caso en el que calcularComision no devuelve un número
         console.log('calcularComision no devolvió un número');
     }
 });
+
 
 
 //event listener de cuando se modifica el input de destino
