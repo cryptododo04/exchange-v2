@@ -2927,10 +2927,9 @@ const inputCantidadOrigen = document.getElementById('cantidad-origen');
 
 //event listener de cuando se modifica el input de origen
 let cantidadOrigen = document.getElementById('cantidad-origen').addEventListener('input', function() {
-    let cantidad = this.value.replace(/,(\d*)$/, '.$1');
+    let cantidad = this.value.replace(",", ".");
     cantidadOrigen = parseFloat(cantidad);
-    console.log(cantidadOrigen);
-    console.log(typeof(cantidadOrigen));
+    alert(cantidadOrigen);
 
     let paisOrigen = document.getElementById('countryDropdownOrigen').innerText.trim();
     let paisDestino = document.getElementById('countryDropdownDestino').innerText.trim();
@@ -2941,9 +2940,11 @@ let cantidadOrigen = document.getElementById('cantidad-origen').addEventListener
     }
 
     cantidadDestino = calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino);
+    alert(cantidadDestino);
     cantidadDestino = parseFloat(cantidadDestino);
-    console.log(typeof(cantidadDestino));
-    console.log(cantidadDestino);
+    alert(cantidadDestino);
+    alert(typeof(cantidadOrigen));
+
     if (typeof cantidadDestino === 'number') {
         if(paisOrigen === 'PAYPAL (USD)' && paisDestino === 'USDT (USDT)') {
             inputCantidadDestino.value = cantidadDestino.toFixed(2);
@@ -2955,7 +2956,6 @@ let cantidadOrigen = document.getElementById('cantidad-origen').addEventListener
         console.log('calcularComision no devolvió un número');
     }
 });
-
     cantidadOrigen = document.getElementById('cantidad-origen').addEventListener('keyup', function() {
     let cantidad = this.value.replace(",", ".");
     cantidadOrigen = parseFloat(cantidad);
