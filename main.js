@@ -2948,6 +2948,7 @@ let cantidadOrigen = document.getElementById('cantidad-origen').addEventListener
     console.log("3- valor en string " + cantidadDestino);
 
     cantidadDestino = parseFloat(cantidadDestino);
+    
 
     alert("3-tipo despues de parsear " + typeof(cantidadDestino));
     alert("4- valor en numero" + cantidadDestino);
