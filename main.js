@@ -2959,11 +2959,11 @@ let cantidadOrigen = 0.00;
     alert("cantidad destino despues de guardarle calcularcomisionorigen "+cantidadDestino);
 
 
-    alert("cantidad destino antes de parsear cantidad destino: "+cantidadOrigen);
+    alert("cantidad destino antes de parsear cantidad destino: "+cantidadDestino);
 
     cantidadDestino = parseFloat(cantidadDestino);
     
-    alert("cantidad despues despues de parsear cantidad destino: "+cantidadOrigen);
+    alert("cantidad despues despues de parsear cantidad destino: "+cantidadDestino);
 
 
     if (typeof cantidadDestino === 'number') {
