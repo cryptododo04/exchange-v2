@@ -2924,9 +2924,11 @@ const inputCantidadDestino = document.getElementById('cantidad-destino');
 // Cambia el selector según el ID de tu segundo input
 const inputCantidadOrigen = document.getElementById('cantidad-origen');
 
+let cantidadOrigen = 0.00;
+
 
 //event listener de cuando se modifica el input de origen
-let cantidadOrigen = document.getElementById('cantidad-origen').addEventListener('input', function() {
+    inputCantidadOrigen.addEventListener('input', function() {
     
     alert("tipo dato de cantidad origen antes de sacar coma: "+typeof(cantidadOrigen));
     alert("cantidad origen antes de sacar coma: "+cantidadOrigen);
