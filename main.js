@@ -2927,13 +2927,13 @@ const inputCantidadOrigen = document.getElementById('cantidad-origen');
 
 //event listener de cuando se modifica el input de origen
 let cantidadOrigen = document.getElementById('cantidad-origen').addEventListener('input', function() {
-    let cantidad = this.value.replace(/,(?=[^,]*$)/, ".");
+    let cantidad = this.value.replace(",", ".");
     cantidadOrigen = parseFloat(cantidad);
 
     let paisOrigen = document.getElementById('countryDropdownOrigen').innerText.trim();
     let paisDestino = document.getElementById('countryDropdownDestino').innerText.trim();
 
-    let cantidadDestino = document.getElementById("cantidad-destino");
+    let cantidadDestino = 0.00;
 
     if(paisOrigen.includes('SELECCIONE ORIGEN') || paisDestino.includes('SELECCIONE DESTINO')){
         console.log("Ingresar opciones válidas");
@@ -2951,7 +2951,7 @@ let cantidadOrigen = document.getElementById('cantidad-origen').addEventListener
     
 
     alert("3-tipo despues de parsear " + typeof(cantidadDestino));
-    alert("4- nuevo valor en numero" + cantidadDestino);
+    alert("4- valor en numero" + cantidadDestino);
 
     if (typeof cantidadDestino === 'number') {
         if(paisOrigen === 'PAYPAL (USD)' && paisDestino === 'USDT (USDT)') {
