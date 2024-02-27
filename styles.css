@@ -170,6 +170,13 @@ body {
     order:-10;
 }
 
+input[type="text"]:focus {
+  border-color: #00FF00; /* Cambiar a verde (#00FF00) o el color que desees */
+  border: 2px solid black;
+  box-shadow: none; /* Opcional: para eliminar la sombra que a veces aparece en el foco */
+  order:-10;
+}
+
   .select-with-images select {
     appearance: none;
     -webkit-appearance: none;
@@ -405,6 +412,11 @@ input[type="number"]{
   border-radius: 500px;
 }
 
+input[type="text"]{
+  height: 40px;
+  border-radius: 500px;
+}
+
 
 
 .corner-label {
@@ -439,9 +451,28 @@ input[type="number"] {
     outline: none; /* Eliminar el contorno al hacer clic */
 }
 
+input[type="text"] {
+  font-family: 'Montserrat', sans-serif; /* Aplicar la fuente Montserrat a los input numéricos */
+  /* Otros estilos opcionales */
+  font-weight: 600; /* Peso de la fuente (400 es regular) */
+  font-style: normal; /* Estilo de la fuente (normal es sin cursiva) */
+  font-size: 18px; /* Tamaño de la fuente */
+  color: #333; /* Color del texto */
+  /* Otros estilos de diseño */
+  border: 1px solid #ccc; /* Borde del input */
+
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra alrededor del input */
+  outline: none; /* Eliminar el contorno al hacer clic */
+}
+
 input[type="number"]:focus {
     border-color: #007bff; /* Cambiar color del borde al estar enfocado */
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Cambiar sombra al estar enfocado */
+}
+
+input[type="text"]:focus {
+  border-color: #007bff; /* Cambiar color del borde al estar enfocado */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Cambiar sombra al estar enfocado */
 }
 
 .input-container{
