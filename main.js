@@ -2927,7 +2927,7 @@ const inputCantidadOrigen = document.getElementById('cantidad-origen');
 
 //event listener de cuando se modifica el input de origen
 let cantidadOrigen = document.getElementById('cantidad-origen').addEventListener('input', function() {
-    let cantidad = this.value.replace(",", ".");
+    let cantidad = this.value.replace(/,(?=[^,]*$)/, ".");
     cantidadOrigen = parseFloat(cantidad);
 
     let paisOrigen = document.getElementById('countryDropdownOrigen').innerText.trim();
