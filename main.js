@@ -2956,7 +2956,34 @@ let cantidadOrigen = document.getElementById('cantidad-origen').addEventListener
     }
 });
 
+    cantidadOrigen = document.getElementById('cantidad-origen').addEventListener('keyup', function() {
+    let cantidad = this.value.replace(",", ".");
+    cantidadOrigen = parseFloat(cantidad);
 
+    let paisOrigen = document.getElementById('countryDropdownOrigen').innerText.trim();
+    let paisDestino = document.getElementById('countryDropdownDestino').innerText.trim();
+
+    if(paisOrigen.includes('SELECCIONE ORIGEN') || paisDestino.includes('SELECCIONE DESTINO')){
+        console.log("Ingresar opciones válidas");
+        return 0;
+    }
+
+    cantidadDestino = calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino);
+    cantidadDestino = parseFloat(cantidadDestino);
+    console.log(typeof(cantidadDestino));
+    console.log(cantidadDestino);
+    if (typeof cantidadDestino === 'number') {
+        if(paisOrigen === 'PAYPAL (USD)' && paisDestino === 'USDT (USDT)') {
+            inputCantidadDestino.value = cantidadDestino.toFixed(2);
+        } else {
+            inputCantidadDestino.value = cantidadDestino;
+        }
+    } else {
+        // Manejo del caso en el que calcularComision no devuelve un número
+        console.log('calcularComision no devolvió un número');
+    }
+    
+});
 
 //event listener de cuando se modifica el input de destino
 document.getElementById('cantidad-destino').addEventListener('input', function() {
