@@ -2924,88 +2924,44 @@ const inputCantidadDestino = document.getElementById('cantidad-destino');
 // Cambia el selector según el ID de tu segundo input
 const inputCantidadOrigen = document.getElementById('cantidad-origen');
 
-let cantidadOrigen = 0.00;
-
 
 //event listener de cuando se modifica el input de origen
-    inputCantidadOrigen.addEventListener('input', function() {
-    
-    alert("tipo dato de cantidad origen antes de sacar coma: "+typeof(cantidadOrigen));
-    alert("cantidad origen antes de sacar coma: "+cantidadOrigen);
-    let cantidad = this.value.replace(",", ".");
-
-    alert("tipo dato de cantidad origen despues de sacar coma: "+typeof(cantidadOrigen));
-    alert("cantidad origen despues de sacar coma: "+cantidadOrigen);
-    
-    cantidadOrigen = parseFloat(cantidad);
-
-    alert("tipo dato de cantidad origen despues de parsear cantidad origen: "+typeof(cantidadOrigen));
-    alert("cantidad origen despues de parsear cantidad origen: "+cantidadOrigen);
-
+document.getElementById('cantidad-origen').addEventListener('input', function() {
+    let cantidadOrigen = parseFloat(this.value);
     let paisOrigen = document.getElementById('countryDropdownOrigen').innerText.trim();
+    console.log(paisOrigen);
     let paisDestino = document.getElementById('countryDropdownDestino').innerText.trim();
-
-    let cantidadDestino = 0.00;
+    console.log(paisDestino);
 
     if(paisOrigen.includes('SELECCIONE ORIGEN') || paisDestino.includes('SELECCIONE DESTINO')){
-        console.log("Ingresar opciones válidas");
-        return 0;
-    }
-
-    alert("tipo de cantidad destino antes de guardarle calcularcomisionorigen "+ typeof(cantidadDestino));
-    alert("cantidad destino antes de guardarle calcularcomisionorigen "+cantidadDestino);
-    cantidadDestino = calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino);
-    alert("tipo de cantidad destino antes de guardarle calcularcomisionorigen "+ typeof(cantidadDestino));
-    alert("cantidad destino despues de guardarle calcularcomisionorigen "+cantidadDestino);
-
-
-    alert("cantidad destino antes de parsear cantidad destino: "+cantidadDestino);
-
-    cantidadDestino = parseFloat(cantidadDestino);
-    
-    alert("cantidad despues despues de parsear cantidad destino: "+cantidadDestino);
-
-
-    if (typeof cantidadDestino === 'number') {
-        if(paisOrigen === 'PAYPAL (USD)' && paisDestino === 'USDT (USDT)') {
-            inputCantidadDestino.value = cantidadDestino.toFixed(2);
-        } else {
-            inputCantidadDestino.value = cantidadDestino;
-        }
-    } else {
-        // Manejo del caso en el que calcularComision no devuelve un número
-        console.log('calcularComision no devolvió un número');
-        alert('calcularComision no devolvió un número');
-    }
-});
-    cantidadOrigen = document.getElementById('cantidad-origen').addEventListener('keyup', function() {
-    let cantidad = this.value.replace(",", ".");
-    cantidadOrigen = parseFloat(cantidad);
-
-    let paisOrigen = document.getElementById('countryDropdownOrigen').innerText.trim();
-    let paisDestino = document.getElementById('countryDropdownDestino').innerText.trim();
-
-    if(paisOrigen.includes('SELECCIONE ORIGEN') || paisDestino.includes('SELECCIONE DESTINO')){
-        console.log("Ingresar opciones válidas");
+        console.log("ingresar opciones validas");
         return 0;
     }
 
     cantidadDestino = calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino);
-    cantidadDestino = parseFloat(cantidadDestino);
+
     console.log(typeof(cantidadDestino));
     console.log(cantidadDestino);
+
+    cantidadDestino = parseFloat(cantidadDestino);
+
+    console.log(typeof(cantidadDestino));
+    
+
+
+
     if (typeof cantidadDestino === 'number') {
-        if(paisOrigen === 'PAYPAL (USD)' && paisDestino === 'USDT (USDT)') {
-            inputCantidadDestino.value = cantidadDestino.toFixed(2);
-        } else {
-            inputCantidadDestino.value = cantidadDestino;
-        }
+
+        if(paisOrigen === 'PAYPAL (USD)' && paisDestino === 'USDT (USDT)')
+        inputCantidadDestino.value = cantidadDestino.toFixed(2);
+        else
+        inputCantidadDestino.value = cantidadDestino;
     } else {
         // Manejo del caso en el que calcularComision no devuelve un número
         console.log('calcularComision no devolvió un número');
     }
-    
 });
+
 
 //event listener de cuando se modifica el input de destino
 document.getElementById('cantidad-destino').addEventListener('input', function() {
