@@ -2927,8 +2927,18 @@ const inputCantidadOrigen = document.getElementById('cantidad-origen');
 
 //event listener de cuando se modifica el input de origen
 let cantidadOrigen = document.getElementById('cantidad-origen').addEventListener('input', function() {
+    
+    alert("tipo dato de cantidad origen antes de sacar coma: "+typeof(cantidadOrigen));
+    alert("cantidad origen antes de sacar coma: "+cantidadOrigen);
     let cantidad = this.value.replace(",", ".");
+
+    alert("tipo dato de cantidad origen despues de sacar coma: "+typeof(cantidadOrigen));
+    alert("cantidad origen despues de sacar coma: "+cantidadOrigen);
+    
     cantidadOrigen = parseFloat(cantidad);
+
+    alert("tipo dato de cantidad origen despues de parsear cantidad origen: "+typeof(cantidadOrigen));
+    alert("cantidad origen despues de parsear cantidad origen: "+cantidadOrigen);
 
     let paisOrigen = document.getElementById('countryDropdownOrigen').innerText.trim();
     let paisDestino = document.getElementById('countryDropdownDestino').innerText.trim();
@@ -2940,13 +2950,18 @@ let cantidadOrigen = document.getElementById('cantidad-origen').addEventListener
         return 0;
     }
 
-    alert("antes: "+cantidadDestino);
+    alert("tipo de cantidad destino antes de guardarle calcularcomisionorigen "+ typeof(cantidadDestino));
+    alert("cantidad destino antes de guardarle calcularcomisionorigen "+cantidadDestino);
     cantidadDestino = calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino);
-    alert("despues: "+cantidadDestino);
+    alert("tipo de cantidad destino antes de guardarle calcularcomisionorigen "+ typeof(cantidadDestino));
+    alert("cantidad destino despues de guardarle calcularcomisionorigen "+cantidadDestino);
 
+
+    alert("cantidad origen despues de parsear cantidad destino: "+cantidadOrigen);
 
     cantidadDestino = parseFloat(cantidadDestino);
     
+    alert("cantidad origen despues de parsear cantidad destino: "+cantidadOrigen);
 
 
     if (typeof cantidadDestino === 'number') {
