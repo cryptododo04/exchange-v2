@@ -2927,8 +2927,7 @@ const inputCantidadOrigen = document.getElementById('cantidad-origen');
 
 //event listener de cuando se modifica el input de origen
 let cantidadOrigen = document.getElementById('cantidad-origen').addEventListener('input', function() {
-    let cantidad = this.value.replace(",", ".");
-    console.log(cantidadOrigen);
+    let cantidad = this.value.replace(/,(\d*)$/, '.$1');
     cantidadOrigen = parseFloat(cantidad);
     console.log(cantidadOrigen);
     console.log(typeof(cantidadOrigen));
