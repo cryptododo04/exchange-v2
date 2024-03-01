@@ -187,20 +187,20 @@ function calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino) {
 
 
     //DECLARACION DE VARIABLE DE CLP A USDT Y DESPUES A ARS (CLP A ARS ---CHILE-ARGENTINA-----)
-    let precioClpArs = 1000;
+    let precioClpArs = 970;
 
     //DECLARACION DE VARIABLE DE COP A USDT (COLOMBIA A ARGENTINA ------COLOMBIA-ARGENTINA----)
     let precioCopUsdt = 3950;
 
 
     //DECLARACION DE VARIABLE DE COP A ARS (COLOMBIA A ARGENTINA ------COLOMBIA-ARGENTINA----)
-    let precioCopArs = 1000;
+    let precioCopArs = 970;
 
     //DECLARACION DE VARIABLE DE COP A VES (COLOMBIA A VENEZUELA ------COLOMBIA-USDT-VENEZUELA)
     let precioCopVes = 35.5; 
 
     //DECLARACION DE VARIABLE A CRC A USDT A ARS (CRC A USDT A ARS ---COSTA RICA-USDT-ARGENTINA---) 
-    let precioCrcUsdtArs = 1000;
+    let precioCrcUsdtArs = 970;
 
 
     //DECLARACION DE VARIABLE DE PRECIO DE USDT EN ARS
@@ -213,7 +213,7 @@ function calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino) {
     let PrecioUsdtVes = 36;
 
     //DECLARACION DE VARIABLE DE MXN A ARS
-    let precioMxnArs = 1000;
+    let precioMxnArs = 970;
 
     //DECLARACION DE VARIABLE DE MXN A COP
     let precioMxnCop = 3770;
@@ -232,10 +232,10 @@ function calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino) {
     let precioEcuUsdtCop = 3760;
 
        //DECLARACION DE VARIABLE DE USD (ECUADOR) a USDT (USD A ARS -----ECUADOR-ARGENTINA--------------)
-    let precioUsdEcuArs = 1000;
+    let precioUsdEcuArs = 970;
 
     //DECLARACION DE VARIABLE DE EUR A ARS
-    let precioEuroArs = 1000;
+    let precioEuroArs = 970;
 
     //DECLARACION DE VARIABLE DE EUR A VES (EURO A BOLIVAR -----VENEZUELA--------------)
     let precioEuroVes = 35.5;
@@ -248,18 +248,18 @@ function calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino) {
     let precioPopUsdt = 63;
 
     //DECLARACION DE VARIABLE DE POP A USDT A ARS (------REPUBLICA DOM A USDT A ARS----POP-USDT-ARS---)
-    let precioPopUsdtArs = 1000;
+    let precioPopUsdtArs = 970;
 
     //DECLARACION DE VARIABLE DE SOL A USDT (SOLES A USDT -----PERU-USDT-----------)
     let precioSolUsdt = 4;
 
     //DECLARACION DE VARIABLE DE USDT A ARS OPERACION PERU (SOLES A USDT A ARS ----SOL-USDT-ARS------)
-    let precioSolArs = 1000;
+    let precioSolArs = 970;
     
 
 
     //DECLARACION DE VARIABLE DE PRECIO DE USDT EN ARS
-    let PrecioPaypalArs = 1000;
+    let PrecioPaypalArs = 970;
     
     //DECLARACION DE VARIABLE DE PRECIO PAYPAL A MXN
     let precioPaypalMXN = 17.26;
@@ -268,7 +268,7 @@ function calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino) {
     let PrecioUsdtPaypal = 0.93605;
 
     //DECLARACION DE VARIABLE DE PRECIO DE USA A USDT A ARS(USA A ARGENTINA -----USA-ARGENTINA-----)
-    let precioUsaUsdtArs = 1000;
+    let precioUsaUsdtArs = 970;
 
     //DECLARACION DE VARIABLE DE PRECIO DE USA A USDT A ARS(USA A ARGENTINA -----USA-ARGENTINA-----)
     let precioUsaUsdtCop = 3760;
@@ -290,10 +290,10 @@ function calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino) {
          let precioCrcUsdt = 580;
 
     //DECLARACION DE VARIABLE DE USDT A ARS OPERACION VENEZUELA (USDT A ARS -VENEZUELA-USDT-ARS---------))
-    let precioVesUsdtArs = 1000;
+    let precioVesUsdtArs = 970;
 
     //DECLARACION DE VARIABLE DE USDT PESOS PAGO NUESTRO DE ARS (---------USDT A ARS------------)
-    let precioUsdtArsPago = 1000;
+    let precioUsdtArsPago = 970;
 
     //DECLARACION DE VARIABLE DE USDT PESOS PAGO NUESTRO DE COP (---------USDT A COP------------)
     let precioUsdtCopPago = 3760;
