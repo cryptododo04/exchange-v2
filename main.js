@@ -190,7 +190,7 @@ function calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino) {
     let precioClpArs = 970;
 
     //DECLARACION DE VARIABLE DE COP A USDT (COLOMBIA A ARGENTINA ------COLOMBIA-ARGENTINA----)
-    let precioCopUsdt = 3950;
+    let precioCopUsdt = 4100;
 
 
     //DECLARACION DE VARIABLE DE COP A ARS (COLOMBIA A ARGENTINA ------COLOMBIA-ARGENTINA----)
@@ -216,7 +216,7 @@ function calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino) {
     let precioMxnArs = 970;
 
     //DECLARACION DE VARIABLE DE MXN A COP
-    let precioMxnCop = 3770;
+    let precioMxnCop = 3760;
 
     //DECLARACION DE VARIABLE DE MXN A USDT (MXN A USDT --------- MEXICO-USDT-----------)
     let precioMxnUsdt = 18.5;
@@ -308,7 +308,7 @@ function calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino) {
     let precioRealUsdt= 5.05;
 
     //DECLARACION DE VARIABLE DE USDT PESOS COMPRA NUESTRA DE REAL (---------COP A USDT------------)
-    let precioCopUsdtCompra= 3900;
+    let precioCopUsdtCompra= 4050;
 
 
 
