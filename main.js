@@ -186,21 +186,13 @@ function calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino) {
         let precioArsUsdtVes = 1250;
 
 
-    //DECLARACION DE VARIABLE DE CLP A USDT Y DESPUES A ARS (CLP A ARS ---CHILE-ARGENTINA-----)
-    let precioClpArs = 970;
-
     //DECLARACION DE VARIABLE DE COP A USDT (COLOMBIA A ARGENTINA ------COLOMBIA-ARGENTINA----)
     let precioCopUsdt = 4100;
 
 
-    //DECLARACION DE VARIABLE DE COP A ARS (COLOMBIA A ARGENTINA ------COLOMBIA-ARGENTINA----)
-    let precioCopArs = 970;
-
     //DECLARACION DE VARIABLE DE COP A VES (COLOMBIA A VENEZUELA ------COLOMBIA-USDT-VENEZUELA)
     let precioCopVes = 35.5; 
 
-    //DECLARACION DE VARIABLE A CRC A USDT A ARS (CRC A USDT A ARS ---COSTA RICA-USDT-ARGENTINA---) 
-    let precioCrcUsdtArs = 970;
 
 
     //DECLARACION DE VARIABLE DE PRECIO DE USDT EN ARS
@@ -211,9 +203,6 @@ function calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino) {
 
     //DECLARACION DE VARIABLE DE PRECIO DE COP A USDT A ARS(COP A USDT A ARS --COLOMBIA-USDT-ARGENTINA--) 
     let PrecioUsdtVes = 36;
-
-    //DECLARACION DE VARIABLE DE MXN A ARS
-    let precioMxnArs = 970;
 
     //DECLARACION DE VARIABLE DE MXN A COP
     let precioMxnCop = 3760;
@@ -231,11 +220,6 @@ function calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino) {
     //DECLARACION DE VARIABLE DE USD (ECUADOR) a USDT (USD A USDT A COP --ECUADOR-USDT-COLOMBIA------)
     let precioEcuUsdtCop = 3760;
 
-       //DECLARACION DE VARIABLE DE USD (ECUADOR) a USDT (USD A ARS -----ECUADOR-ARGENTINA--------------)
-    let precioUsdEcuArs = 970;
-
-    //DECLARACION DE VARIABLE DE EUR A ARS
-    let precioEuroArs = 970;
 
     //DECLARACION DE VARIABLE DE EUR A VES (EURO A BOLIVAR -----VENEZUELA--------------)
     let precioEuroVes = 35.5;
@@ -247,19 +231,13 @@ function calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino) {
     //DECLARACION DE VARIABLE DE POP A USDT(------REPUBLICA DOM A USDT------POP-USDT )
     let precioPopUsdt = 63;
 
-    //DECLARACION DE VARIABLE DE POP A USDT A ARS (------REPUBLICA DOM A USDT A ARS----POP-USDT-ARS---)
-    let precioPopUsdtArs = 970;
 
     //DECLARACION DE VARIABLE DE SOL A USDT (SOLES A USDT -----PERU-USDT-----------)
     let precioSolUsdt = 4;
 
-    //DECLARACION DE VARIABLE DE USDT A ARS OPERACION PERU (SOLES A USDT A ARS ----SOL-USDT-ARS------)
-    let precioSolArs = 970;
-    
-
 
     //DECLARACION DE VARIABLE DE PRECIO DE USDT EN ARS
-    let PrecioPaypalArs = 970;
+    let PrecioPaypalArs = 920;
     
     //DECLARACION DE VARIABLE DE PRECIO PAYPAL A MXN
     let precioPaypalMXN = 17.26;
@@ -267,8 +245,6 @@ function calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino) {
     //DECLARACION DE VARIABLE DE PRECIO DE USDT A PAYPAL
     let PrecioUsdtPaypal = 0.93605;
 
-    //DECLARACION DE VARIABLE DE PRECIO DE USA A USDT A ARS(USA A ARGENTINA -----USA-ARGENTINA-----)
-    let precioUsaUsdtArs = 970;
 
     //DECLARACION DE VARIABLE DE PRECIO DE USA A USDT A ARS(USA A ARGENTINA -----USA-ARGENTINA-----)
     let precioUsaUsdtCop = 3760;
@@ -289,11 +265,8 @@ function calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino) {
         //DECLARACION DE VARIABLE A CRC A USDT
          let precioCrcUsdt = 580;
 
-    //DECLARACION DE VARIABLE DE USDT A ARS OPERACION VENEZUELA (USDT A ARS -VENEZUELA-USDT-ARS---------))
-    let precioVesUsdtArs = 970;
-
     //DECLARACION DE VARIABLE DE USDT PESOS PAGO NUESTRO DE ARS (---------USDT A ARS------------)
-    let precioUsdtArsPago = 970;
+    let precioUsdtArsPago = 920;
 
     //DECLARACION DE VARIABLE DE USDT PESOS PAGO NUESTRO DE COP (---------USDT A COP------------)
     let precioUsdtCopPago = 3760;
@@ -491,7 +464,7 @@ function calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino) {
 
             comisionDiv.innerText = `Comision: 16%`;
 
-            resultado = resultado * precioClpArs;
+            resultado = resultado * precioUsdtArsPago;
     
             return resultado.toFixed(2);
         }
@@ -582,7 +555,7 @@ function calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino) {
             comisionDiv.innerText = `Comision: 16%`;
 
     
-            resultado = resultado * precioCopArs;
+            resultado = resultado * precioUsdtArsPago;
     
             return resultado.toFixed(2);
 
@@ -657,7 +630,7 @@ function calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino) {
             comisionDiv.innerText = `Comision: 16%`;
 
     
-            resultado = resultado * precioCrcUsdtArs;
+            resultado = resultado * precioUsdtArsPago;
     
             return resultado.toFixed(2);
 
@@ -741,7 +714,7 @@ function calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino) {
             comisionDiv.innerText = `Comision: 16%`;
 
     
-            resultado = resultado * precioUsdEcuArs;
+            resultado = resultado * precioUsdtArsPago;
     
             return resultado.toFixed(2);
 
@@ -827,7 +800,7 @@ function calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino) {
 
             
 
-            resultado = resultado * precioEuroArs;
+            resultado = resultado * precioUsdtArsPago;
 
             comisionDiv.innerText = `Comision: 16%`;
 
@@ -911,16 +884,11 @@ function calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino) {
         const cantidadConComisionTotal = cantidadConComisionPorcentaje - comisionPayPalFija;
 
   
-        resultado = cantidadConComisionTotal * takenos;
+        
 
 
         comisionDiv.innerText = `Comision: 20%`;
 
-        resultado = resultado - resultado * porcentajeComisionUsa;
-
-        resultado = resultado * precioUsaUsdtArs;
-
-        return resultado.toFixed(1);
 
         }
         else if(paisDestino === 'COLOMBIA (COP)'){
@@ -1047,7 +1015,7 @@ function calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino) {
             comisionDiv.innerText = `Comision: 16%`;
 
 
-            resultado = resultado * precioMxnArs;
+            resultado = resultado * precioUsdtArsPago;
 
             return resultado.toFixed(2);
         }
@@ -1213,7 +1181,7 @@ function calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino) {
             resultado = resultado - resultado * porcentajeComision;
 
     
-            resultado = resultado * precioSolArs;
+            resultado = resultado * precioUsdtArsPago;
     
             return resultado.toFixed(2);
 
@@ -1301,7 +1269,7 @@ function calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino) {
             resultado = resultado - resultado * porcentajeComision;
 
     
-            resultado = resultado * precioPopUsdtArs;
+            resultado = resultado * precioUsdtArsPago;
     
             return resultado.toFixed(2);
 
@@ -1465,7 +1433,7 @@ function calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino) {
             resultado = resultado - resultado * porcentajeComision;
     
     
-            resultado = resultado * precioVesUsdtArs;
+            resultado = resultado * precioUsdtArsPago;
     
             return resultado.toFixed(2);
         }
