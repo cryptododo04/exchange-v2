@@ -1655,7 +1655,7 @@ function calcularComisionDestino(cantidadDestino, paisOrigen, paisDestino) {
     let precioUsdtVesPago = 35.5;
 
     //DECLARACION DE VARIABLE DE USDT PESOS PAGO NUESTRO DE REAL (---------USDT A REAL------------)
-    let precioRealUsdt= 5.05;
+    let precioRealUsdt= 5.5;
 
     //DECLARACION DE VARIABLE DE USDT PESOS COMPRA NUESTRA DE REAL (---------COP A USDT------------)
     let precioCopUsdtCompra= 3900;
