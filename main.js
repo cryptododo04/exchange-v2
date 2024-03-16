@@ -251,7 +251,7 @@ function calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino) {
 
 
     //DECLARACION DE VARIABLE DE PRECIO DE USA A USDT A ARS(USA A ARGENTINA -----USA-ARGENTINA-----)
-    let precioUsaUsdtVes = 35.5;
+    let precioUsaUsdtVes = 36;
 
     //DECLARACION DE VARIABLE DE VES A USDT(BOLIVARES A USDT --------VENEZUELA-USDT----------)
     let precioVesUsdt = 38.5;
@@ -278,7 +278,7 @@ function calcularComisionOrigen(cantidadOrigen, paisOrigen, paisDestino) {
     let precioUsdtVesPago = 35.5;
 
     //DECLARACION DE VARIABLE DE USDT PESOS PAGO NUESTRO DE REAL (---------USDT A REAL------------)
-    let precioRealUsdt= 5.05;
+    let precioRealUsdt= 5.5;
 
     //DECLARACION DE VARIABLE DE USDT PESOS COMPRA NUESTRA DE REAL (---------COP A USDT------------)
     let precioCopUsdtCompra= 3810;
